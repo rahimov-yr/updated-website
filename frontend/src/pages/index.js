@@ -1,0 +1,7 @@
+export { default as Home } from './Home'
+export { default as Program } from './Program'
+export { default as Events } from './Events'
+export { default as Excursions } from './Excursions'
+export { default as Exhibition } from './Exhibition'
+export { default as Logistics } from './Logistics'
+export { default as Contacts } from './Contacts'

@@ -1,0 +1,44 @@
+[package]
+name = "water-conference-api"
+version = "0.1.0"
+edition = "2021"
+description = "Backend API for Water Conference 2026 website"
+authors = ["Your Name"]
+
+[dependencies]
+# Web framework
+axum = { version = "0.7", features = ["macros", "multipart"] }
+tokio = { version = "1", features = ["full"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors", "fs", "trace"] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Database
+sqlx = { version = "0.7", features = ["runtime-tokio", "sqlite", "chrono"] }
+
+# Utilities
+chrono = { version = "0.4.38", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+dotenvy = "0.15"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+time = "0.3.36"  # Pin to version compatible with Rust 1.85
+
+# Validation
+validator = { version = "0.16", features = ["derive"] }
+
+# Error handling
+thiserror = "1"
+anyhow = "1"
+
+# Authentication
+bcrypt = "0.15"
+jsonwebtoken = "9"
+axum-extra = { version = "0.9", features = ["typed-header"] }
+
+[profile.release]
+opt-level = 3
+lto = true

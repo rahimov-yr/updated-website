@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: water-conference
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      # Bind mounts - data persists on VPS filesystem
+      - ./vps-data/database:/app/data
+      - ./vps-data/uploads:/app/uploads
+    environment:
+      - RUST_LOG=info
+      - DATABASE_URL=sqlite:./data/conference.db?mode=rwc
+      - JWT_SECRET=${JWT_SECRET:-change-this-in-production}
+      - SERVER_ADDR=0.0.0.0:3000

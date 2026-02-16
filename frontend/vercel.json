@@ -1,0 +1,6 @@
+{
+  "outputDirectory": "../backend/static",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}

@@ -1,0 +1,660 @@
+/* ============================================
+   Practical Info Page – Modern Conference Portal
+   Prefix: pra-
+   Clean cards, soft glass, generous whitespace
+   ============================================ */
+
+/* ============================================
+   Intro
+   ============================================ */
+.pra-intro {
+  padding: 4rem 0 3rem;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.pra-intro__pattern {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 260px;
+  height: 260px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.025);
+}
+
+.pra-intro .container {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pra-intro__label {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: linear-gradient(135deg, rgba(0, 163, 224, 0.08), rgba(0, 119, 168, 0.08));
+  border: 1px solid rgba(0, 163, 224, 0.15);
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent, #00a3e0);
+  margin-bottom: 1.25rem;
+}
+
+.pra-intro__title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 1.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.pra-intro__text {
+  font-size: 1rem;
+  color: var(--color-gray-500);
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================
+   Info Hub – Two modern cards
+   ============================================ */
+.pra-hub {
+  padding: 0 0 4rem;
+  background: white;
+}
+
+.pra-hub__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.pra-hub__card {
+  background: var(--color-gray-50);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 2rem 2.25rem;
+  position: relative;
+  transition: all 0.35s ease;
+}
+
+.pra-hub__card:hover {
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.02),
+    0 12px 32px rgba(30, 58, 95, 0.07);
+  border-color: rgba(0, 163, 224, 0.12);
+}
+
+.pra-hub__card-badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gray-400);
+  margin-bottom: 1.5rem;
+}
+
+.pra-hub__row {
+  margin-bottom: 1rem;
+}
+
+.pra-hub__row:last-child {
+  margin-bottom: 0;
+}
+
+.pra-hub__label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gray-400);
+  margin: 0 0 0.15rem;
+}
+
+.pra-hub__value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.pra-hub__value a {
+  color: var(--color-accent, #00a3e0);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pra-hub__value a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   Guide Section – Modern card list
+   ============================================ */
+.pra-guide {
+  padding: 4.5rem 0;
+  background: linear-gradient(180deg, var(--color-gray-50) 0%, white 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.pra-guide__pattern {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 260px;
+  height: 260px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.025);
+}
+
+.pra-guide .container {
+  position: relative;
+  z-index: 2;
+}
+
+.pra-guide__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.pra-guide__title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.6rem;
+  letter-spacing: -0.02em;
+}
+
+.pra-guide__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.pra-guide-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Individual guide card */
+.pra-card {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.pra-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 3px 0 0 3px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.pra-card:hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 8px 24px rgba(30, 58, 95, 0.07);
+  border-color: transparent;
+}
+
+.pra-card:hover::before {
+  opacity: 1;
+}
+
+/* Card color accents */
+.pra-card--navy::before   { background: var(--color-primary-dark); }
+.pra-card--teal::before   { background: #0077a8; }
+.pra-card--green::before  { background: #059669; }
+.pra-card--purple::before { background: #7c3aed; }
+.pra-card--rose::before   { background: #e11d48; }
+.pra-card--cyan::before   { background: var(--color-accent, #00a3e0); }
+.pra-card--amber::before  { background: #d97706; }
+
+/* Card head */
+.pra-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.75rem 0;
+}
+
+.pra-card__pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+}
+
+.pra-card--navy .pra-card__pill   { background: var(--color-primary-dark); }
+.pra-card--teal .pra-card__pill   { background: #0077a8; }
+.pra-card--green .pra-card__pill  { background: #059669; }
+.pra-card--purple .pra-card__pill { background: #7c3aed; }
+.pra-card--rose .pra-card__pill   { background: #e11d48; }
+.pra-card--cyan .pra-card__pill   { background: var(--color-accent, #00a3e0); }
+.pra-card--amber .pra-card__pill  { background: #d97706; }
+
+.pra-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--color-gray-50);
+  color: var(--color-gray-400);
+  flex-shrink: 0;
+}
+
+.pra-card__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Card body */
+.pra-card__body {
+  padding: 0.75rem 1.75rem 1.5rem;
+}
+
+.pra-card__text {
+  font-size: 0.88rem;
+  color: var(--color-gray-500);
+  line-height: 1.85;
+  margin: 0;
+}
+
+.pra-card__text a {
+  color: var(--color-accent, #00a3e0);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pra-card__text a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   Quick Reference – Light cards
+   ============================================ */
+.pra-ref {
+  padding: 4rem 0;
+  background: white;
+}
+
+.pra-ref .container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.pra-ref__title {
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-gray-400);
+  margin: 0 0 1.75rem;
+}
+
+.pra-ref__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.pra-ref__item {
+  text-align: center;
+  padding: 1.75rem 1.25rem;
+  background: var(--color-gray-50);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 18px;
+  transition: all 0.35s ease;
+}
+
+.pra-ref__item:hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 8px 24px rgba(30, 58, 95, 0.06);
+  border-color: rgba(0, 163, 224, 0.1);
+}
+
+.pra-ref__item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--color-accent, #00a3e0);
+  margin: 0 auto 1rem;
+}
+
+.pra-ref__item-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.15rem;
+  letter-spacing: -0.02em;
+}
+
+.pra-ref__item-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gray-400);
+  margin: 0 0 0.35rem;
+}
+
+.pra-ref__item-note {
+  font-size: 0.75rem;
+  color: var(--color-gray-400);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ============================================
+   Closing
+   ============================================ */
+.pra-closing {
+  padding: 3.5rem 0 4rem;
+  background: var(--color-gray-50);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pra-closing__pattern {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  filter: brightness(0) opacity(0.025);
+}
+
+.pra-closing .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pra-closing__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.pra-closing__text {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 560px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 1024px) {
+  .pra-intro__title {
+    font-size: 1.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pra-intro {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .pra-intro__title {
+    font-size: 1.5rem;
+  }
+
+  .pra-intro__text {
+    font-size: 0.93rem;
+  }
+
+  .pra-intro__pattern {
+    display: none;
+  }
+
+  .pra-hub {
+    padding: 0 0 3rem;
+  }
+
+  .pra-hub__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pra-hub__card {
+    padding: 1.5rem 1.75rem;
+  }
+
+  .pra-guide {
+    padding: 3rem 0;
+  }
+
+  .pra-guide__title {
+    font-size: 1.4rem;
+  }
+
+  .pra-card__head {
+    padding: 1.15rem 1.5rem 0;
+  }
+
+  .pra-card__body {
+    padding: 0.65rem 1.5rem 1.25rem;
+  }
+
+  .pra-card__name {
+    font-size: 0.98rem;
+  }
+
+  .pra-guide__pattern {
+    display: none;
+  }
+
+  .pra-ref__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pra-ref {
+    padding: 3rem 0;
+  }
+
+  .pra-closing {
+    padding: 3rem 0;
+  }
+
+  .pra-closing__title {
+    font-size: 1.3rem;
+  }
+
+  .pra-closing__pattern {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pra-intro {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .pra-intro__title {
+    font-size: 1.3rem;
+  }
+
+  .pra-intro__text {
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+
+  .pra-hub {
+    padding: 0 0 2.5rem;
+  }
+
+  .pra-hub__card {
+    padding: 1.25rem 1.5rem;
+    border-radius: 16px;
+  }
+
+  .pra-guide {
+    padding: 2.5rem 0;
+  }
+
+  .pra-guide__title {
+    font-size: 1.25rem;
+  }
+
+  .pra-card {
+    border-radius: 14px;
+  }
+
+  .pra-card__head {
+    padding: 1rem 1.25rem 0;
+    gap: 0.6rem;
+  }
+
+  .pra-card__pill {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    font-size: 0.62rem;
+  }
+
+  .pra-card__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+
+  .pra-card__name {
+    font-size: 0.92rem;
+  }
+
+  .pra-card__body {
+    padding: 0.6rem 1.25rem 1.15rem;
+  }
+
+  .pra-card__text {
+    font-size: 0.84rem;
+  }
+
+  .pra-ref {
+    padding: 2.5rem 0;
+  }
+
+  .pra-ref__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .pra-ref__item {
+    padding: 1.25rem 1rem;
+    border-radius: 14px;
+  }
+
+  .pra-ref__item-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .pra-ref__item-value {
+    font-size: 1.15rem;
+  }
+
+  .pra-closing {
+    padding: 2.5rem 0;
+  }
+
+  .pra-closing__title {
+    font-size: 1.15rem;
+  }
+
+  .pra-closing__text {
+    font-size: 0.88rem;
+  }
+}
+
+@media print {
+  .pra-intro__pattern,
+  .pra-guide__pattern,
+  .pra-closing__pattern {
+    display: none;
+  }
+
+  .pra-hub__card,
+  .pra-card,
+  .pra-ref__item {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+  }
+
+  .pra-card::before {
+    display: none;
+  }
+
+  .pra-card__pill {
+    background: var(--color-gray-300) !important;
+    color: var(--color-gray-700);
+  }
+
+  .pra-ref__item-icon {
+    background: var(--color-gray-100);
+    color: var(--color-gray-600);
+  }
+}

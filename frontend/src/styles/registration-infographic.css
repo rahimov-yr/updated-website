@@ -1,0 +1,914 @@
+/* ============================================
+   Registration Page – Timeline & Editorial Style
+   Prefix: reg-
+   ============================================ */
+
+/* ============================================
+   Intro - Centered text
+   ============================================ */
+.reg-intro {
+  padding: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+
+.reg-intro__pattern {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 280px;
+  height: 280px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.reg-intro .container {
+  position: relative;
+  z-index: 2;
+}
+
+.reg-intro__text {
+  font-size: 1.1rem;
+  color: var(--color-gray-600);
+  line-height: 1.9;
+  margin: 0;
+  text-align: center;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================
+   Steps - Timeline
+   ============================================ */
+.reg-steps {
+  padding: 2.5rem 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-gray-50);
+}
+
+.reg-steps__pattern {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 280px;
+  height: 280px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.reg-steps .container {
+  position: relative;
+  z-index: 2;
+}
+
+.reg-steps__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.reg-steps__subtitle {
+  font-size: 0.88rem;
+  color: var(--color-gray-500);
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+}
+
+/* Timeline */
+.reg-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.reg-timeline__item {
+  display: flex;
+  gap: 1.25rem;
+  padding-bottom: 1rem;
+  position: relative;
+  align-items: flex-start;
+}
+
+.reg-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+/* Connecting line */
+.reg-timeline__item::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 38px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(0, 163, 224, 0.3), rgba(45, 90, 135, 0.1));
+}
+
+.reg-timeline__item:last-child::before {
+  display: none;
+}
+
+.reg-timeline__marker {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 163, 224, 0.3);
+  position: relative;
+  z-index: 1;
+  margin-top: 1.25rem;
+}
+
+.reg-timeline__num {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.reg-timeline__card {
+  flex: 1;
+  background: white;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.reg-timeline__card:hover {
+  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.1);
+  transform: translateY(-2px);
+}
+
+.reg-timeline__heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.3rem;
+  line-height: 1.3;
+}
+
+.reg-timeline__desc {
+  font-size: 0.82rem;
+  color: var(--color-gray-500);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================
+   Deadline - Gradient banner card
+   ============================================ */
+.reg-deadline {
+  padding: 4rem 0;
+  background: white;
+  position: relative;
+}
+
+.reg-banner {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #0077a8 100%);
+  border-radius: 20px;
+  padding: 3rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.reg-banner__pattern {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.reg-banner__content {
+  position: relative;
+  z-index: 1;
+}
+
+.reg-banner__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.reg-banner__title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 0.85rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.reg-banner__text {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.85;
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Countdown */
+.reg-countdown {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.reg-countdown__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.reg-countdown__num {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  min-width: 72px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  font-variant-numeric: tabular-nums;
+}
+
+.reg-countdown__label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.5rem;
+}
+
+.reg-countdown__sep {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 1.4rem;
+  line-height: 1;
+}
+
+/* ============================================
+   Categories - Cards with left accents
+   ============================================ */
+.reg-categories {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-gray-50);
+}
+
+.reg-categories__pattern {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 300px;
+  height: 300px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.reg-categories .container {
+  position: relative;
+  z-index: 2;
+}
+
+.reg-categories__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.reg-categories__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  margin: 0 0 2.25rem;
+  line-height: 1.6;
+}
+
+.reg-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.reg-cat {
+  background: white;
+  border-radius: 14px;
+  padding: 2rem 2.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.reg-cat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 4px 0 0 4px;
+}
+
+.reg-cat:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.1);
+}
+
+.reg-cat__watermark {
+  position: absolute;
+  top: 0.25rem;
+  right: 1rem;
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  opacity: 0.04;
+  color: var(--color-primary-dark);
+}
+
+.reg-cat__name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+  position: relative;
+}
+
+.reg-cat__desc {
+  font-size: 0.85rem;
+  color: var(--color-gray-500);
+  line-height: 1.7;
+  margin: 0;
+  position: relative;
+}
+
+/* Card color variants */
+.reg-cat--navy::before {
+  background: linear-gradient(180deg, var(--color-primary-dark), var(--color-primary));
+}
+.reg-cat--navy:hover {
+  border-color: rgba(30, 58, 95, 0.2);
+}
+
+.reg-cat--teal::before {
+  background: linear-gradient(180deg, #0077a8, var(--color-accent));
+}
+.reg-cat--teal:hover {
+  border-color: rgba(0, 119, 168, 0.2);
+}
+
+/* ============================================
+   Contact - Glass card
+   ============================================ */
+.reg-contact {
+  padding: 0 0 4rem;
+  background: var(--color-gray-50);
+}
+
+.reg-contact .container {
+  position: relative;
+  z-index: 2;
+}
+
+.reg-contact__card {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 2rem 2.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.reg-contact__card:hover {
+  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.1);
+}
+
+.reg-contact__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 163, 224, 0.3);
+}
+
+.reg-contact__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.reg-contact__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.35rem;
+}
+
+.reg-contact__text {
+  font-size: 0.9rem;
+  color: var(--color-gray-500);
+  line-height: 1.75;
+  margin: 0 0 0.6rem;
+}
+
+.reg-contact__email-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.reg-contact__email {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-accent, #00a3e0);
+  text-decoration: none;
+}
+
+.reg-contact__email:hover {
+  text-decoration: underline;
+}
+
+.reg-contact__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: var(--color-gray-50);
+  color: var(--color-gray-500);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.reg-contact__copy:hover {
+  background: rgba(0, 163, 224, 0.06);
+  border-color: rgba(0, 163, 224, 0.25);
+  color: var(--color-accent);
+}
+
+.reg-contact__copy--done {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+/* ============================================
+   Closing - Clean accent card
+   ============================================ */
+.reg-closing {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+
+.reg-closing__pattern {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 260px;
+  height: 260px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.reg-closing .container {
+  position: relative;
+  z-index: 2;
+}
+
+.reg-closing__card {
+  padding: 2.5rem 3rem;
+  background: var(--color-gray-50);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.reg-closing__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+.reg-closing__text {
+  font-size: 0.95rem;
+  color: var(--color-gray-600);
+  line-height: 1.85;
+  margin: 0 auto;
+  max-width: 520px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 1024px) {
+  .reg-timeline__card {
+    padding: 1.1rem 1.35rem;
+  }
+
+  .reg-banner {
+    padding: 2.5rem 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .reg-intro {
+    padding: 2.5rem 0;
+  }
+
+  .reg-intro__text {
+    font-size: 0.95rem;
+  }
+
+  .reg-intro__pattern {
+    display: none;
+  }
+
+  .reg-steps {
+    padding: 2rem 0;
+  }
+
+  .reg-steps__title {
+    font-size: 1.2rem;
+  }
+
+  .reg-timeline__item {
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .reg-timeline__marker {
+    width: 30px;
+    height: 30px;
+    margin-top: 1rem;
+  }
+
+  .reg-timeline__item::before {
+    left: 14px;
+    top: 34px;
+  }
+
+  .reg-timeline__num {
+    font-size: 0.75rem;
+  }
+
+  .reg-timeline__card {
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+  }
+
+  .reg-timeline__heading {
+    font-size: 0.9rem;
+  }
+
+  .reg-timeline__desc {
+    font-size: 0.8rem;
+  }
+
+  .reg-steps__pattern {
+    display: none;
+  }
+
+  .reg-deadline {
+    padding: 3rem 0;
+  }
+
+  .reg-banner {
+    padding: 2rem;
+    border-radius: 16px;
+  }
+
+  .reg-banner__title {
+    font-size: 1.35rem;
+  }
+
+  .reg-banner__text {
+    font-size: 0.9rem;
+  }
+
+  .reg-countdown {
+    gap: 0.5rem;
+  }
+
+  .reg-countdown__unit {
+    min-width: 58px;
+  }
+
+  .reg-countdown__num {
+    font-size: 1.8rem;
+    padding: 0.6rem 0.75rem;
+    min-width: 58px;
+    border-radius: 10px;
+  }
+
+  .reg-countdown__sep {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .reg-countdown__label {
+    font-size: 0.6rem;
+  }
+
+  .reg-categories {
+    padding: 3rem 0;
+  }
+
+  .reg-categories__title {
+    font-size: 1.35rem;
+  }
+
+  .reg-cat-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .reg-cat {
+    padding: 1.5rem 1.75rem;
+  }
+
+  .reg-categories__pattern {
+    display: none;
+  }
+
+  .reg-contact__card {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 1.75rem;
+  }
+
+  .reg-closing {
+    padding: 3rem 0;
+  }
+
+  .reg-closing__card {
+    padding: 2rem;
+  }
+
+  .reg-closing__title {
+    font-size: 1.3rem;
+  }
+
+  .reg-closing__pattern {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .reg-intro {
+    padding: 2rem 0;
+  }
+
+  .reg-intro__text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .reg-steps {
+    padding: 1.5rem 0;
+  }
+
+  .reg-steps__title {
+    font-size: 1.1rem;
+  }
+
+  .reg-timeline__marker {
+    width: 28px;
+    height: 28px;
+    margin-top: 0.85rem;
+  }
+
+  .reg-timeline__item::before {
+    left: 13px;
+    top: 30px;
+  }
+
+  .reg-timeline__num {
+    font-size: 0.7rem;
+  }
+
+  .reg-timeline__card {
+    padding: 0.85rem 1rem;
+  }
+
+  .reg-timeline__heading {
+    font-size: 0.85rem;
+  }
+
+  .reg-timeline__desc {
+    font-size: 0.78rem;
+  }
+
+  .reg-deadline {
+    padding: 2.5rem 0;
+  }
+
+  .reg-banner {
+    padding: 1.75rem;
+  }
+
+  .reg-banner__title {
+    font-size: 1.2rem;
+  }
+
+  .reg-banner__text {
+    font-size: 0.85rem;
+  }
+
+  .reg-countdown {
+    gap: 0.35rem;
+  }
+
+  .reg-countdown__unit {
+    min-width: 50px;
+  }
+
+  .reg-countdown__num {
+    font-size: 1.4rem;
+    padding: 0.5rem 0.6rem;
+    min-width: 50px;
+    border-radius: 8px;
+  }
+
+  .reg-countdown__sep {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .reg-countdown__label {
+    font-size: 0.55rem;
+    margin-top: 0.35rem;
+  }
+
+  .reg-categories {
+    padding: 2.5rem 0;
+  }
+
+  .reg-categories__title {
+    font-size: 1.2rem;
+  }
+
+  .reg-cat {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .reg-cat__watermark {
+    font-size: 2.5rem;
+  }
+
+  .reg-contact {
+    padding: 0 0 2.5rem;
+  }
+
+  .reg-contact__card {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .reg-contact__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .reg-closing {
+    padding: 2.5rem 0;
+  }
+
+  .reg-closing__card {
+    padding: 1.5rem;
+  }
+
+  .reg-closing__title {
+    font-size: 1.15rem;
+  }
+}
+
+@media print {
+  .reg-intro__pattern,
+  .reg-steps__pattern,
+  .reg-banner__pattern,
+  .reg-categories__pattern,
+  .reg-closing__pattern {
+    display: none;
+  }
+
+  .reg-timeline__item::before {
+    background: var(--color-gray-300);
+  }
+
+  .reg-timeline__marker {
+    background: var(--color-gray-300);
+    box-shadow: none;
+  }
+
+  .reg-timeline__card {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+    break-inside: avoid;
+  }
+
+  .reg-banner {
+    background: var(--color-gray-100);
+  }
+
+  .reg-banner__label {
+    background: transparent;
+    border-color: var(--color-gray-400);
+    color: var(--color-gray-600);
+  }
+
+  .reg-banner__title {
+    color: var(--color-gray-900);
+  }
+
+  .reg-banner__text {
+    color: var(--color-gray-600);
+  }
+
+  .reg-cat {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+    break-inside: avoid;
+  }
+
+  .reg-cat::before {
+    background: var(--color-gray-400) !important;
+  }
+
+  .reg-contact__card {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+  }
+
+  .reg-contact__icon {
+    background: var(--color-gray-300);
+    box-shadow: none;
+  }
+
+  .reg-closing__card {
+    background: white;
+    border: 1px solid var(--color-gray-300);
+  }
+}

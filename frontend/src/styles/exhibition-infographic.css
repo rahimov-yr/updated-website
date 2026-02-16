@@ -1,0 +1,638 @@
+/* ============================================
+   Exhibition Page - International Exhibition
+   Prefix: exh-
+   ============================================ */
+
+/* ============================================
+   Intro Section - About the exhibition
+   ============================================ */
+.exh-intro {
+  padding: 3.5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  text-align: center;
+}
+
+.exh-intro__pattern {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 300px;
+  height: 300px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.exh-intro .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exh-intro__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 1.25rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.exh-intro__text {
+  font-size: 1.05rem;
+  color: var(--color-gray-600);
+  line-height: 1.9;
+  margin: 0;
+  max-width: 800px;
+}
+
+/* ============================================
+   Objectives Section - Goal cards
+   ============================================ */
+.exh-objectives {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-gray-50);
+}
+
+.exh-objectives__pattern {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 280px;
+  height: 280px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.exh-objectives .container {
+  position: relative;
+  z-index: 2;
+}
+
+.exh-objectives__header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.exh-objectives__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.exh-objectives__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.exh-obj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.exh-obj-card {
+  background: white;
+  border-radius: 18px;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.exh-obj-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 12px 28px rgba(30, 58, 95, 0.1);
+}
+
+.exh-obj-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 12px;
+  color: white;
+}
+
+.exh-obj-card--awareness .exh-obj-card__icon {
+  background: linear-gradient(135deg, var(--color-primary-dark), #244a73);
+}
+
+.exh-obj-card--innovation .exh-obj-card__icon {
+  background: linear-gradient(135deg, #0077a8, #009cc7);
+}
+
+.exh-obj-card--partnership .exh-obj-card__icon {
+  background: linear-gradient(135deg, #059669, #10b981);
+}
+
+.exh-obj-card--showcase .exh-obj-card__icon {
+  background: linear-gradient(135deg, #7c3aed, #9b5dfa);
+}
+
+.exh-obj-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.exh-obj-card__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.4rem;
+  line-height: 1.3;
+}
+
+.exh-obj-card__desc {
+  font-size: 0.88rem;
+  color: var(--color-gray-500);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   Participants Section - Who is invited
+   ============================================ */
+.exh-participants {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+
+.exh-participants__pattern {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 260px;
+  height: 260px;
+  background: url('/assets/images/pattern_header_left.png') no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.04);
+  transform: scaleX(-1);
+}
+
+.exh-participants .container {
+  position: relative;
+  z-index: 2;
+}
+
+.exh-participants__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.exh-participants__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.exh-participants__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.exh-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.exh-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background: var(--color-gray-50);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 100px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  transition: all 0.25s ease;
+}
+
+.exh-tag:hover {
+  background: white;
+  border-color: rgba(0, 163, 224, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 163, 224, 0.1);
+}
+
+.exh-tag__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent, #00a3e0);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   Registration Section - How to participate
+   ============================================ */
+.exh-registration {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-gray-50);
+}
+
+.exh-registration__pattern {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 240px;
+  height: 240px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.exh-registration .container {
+  position: relative;
+  z-index: 2;
+}
+
+.exh-reg-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.exh-reg-card__top {
+  padding: 1.5rem 2.25rem;
+  background: linear-gradient(135deg, var(--color-primary-dark), #244a73);
+  position: relative;
+  overflow: hidden;
+}
+
+.exh-reg-card__top::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 120px;
+  height: 120px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.exh-reg-card__heading {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.exh-reg-card__body {
+  padding: 2rem 2.25rem;
+}
+
+.exh-reg-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.exh-reg-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.exh-reg-step__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 163, 224, 0.12) 0%, rgba(30, 58, 95, 0.06) 100%);
+  color: var(--color-accent, #00a3e0);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.exh-reg-step__text {
+  font-size: 0.95rem;
+  color: var(--color-gray-600);
+  line-height: 1.75;
+  margin: 0;
+  padding-top: 0.35rem;
+}
+
+/* ============================================
+   Closing Banner - Call to action
+   ============================================ */
+.exh-closing {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+}
+
+.exh-closing__pattern {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 280px;
+  height: 280px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.05;
+}
+
+.exh-closing .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.exh-closing__title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.exh-closing__text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.85;
+  margin: 0;
+  max-width: 720px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 1024px) {
+  .exh-obj-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .exh-intro__title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .exh-intro {
+    padding: 3rem 0;
+  }
+
+  .exh-intro__title {
+    font-size: 1.5rem;
+  }
+
+  .exh-intro__text {
+    font-size: 0.95rem;
+  }
+
+  .exh-intro__pattern {
+    display: none;
+  }
+
+  .exh-objectives {
+    padding: 3rem 0;
+  }
+
+  .exh-obj-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .exh-obj-card {
+    padding: 1.5rem;
+  }
+
+  .exh-objectives__pattern {
+    display: none;
+  }
+
+  .exh-participants {
+    padding: 3rem 0;
+  }
+
+  .exh-tag {
+    padding: 0.55rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  .exh-participants__pattern {
+    display: none;
+  }
+
+  .exh-registration {
+    padding: 3rem 0;
+  }
+
+  .exh-reg-card__top {
+    padding: 1.25rem 1.75rem;
+  }
+
+  .exh-reg-card__heading {
+    font-size: 1.15rem;
+  }
+
+  .exh-reg-card__body {
+    padding: 1.5rem 1.75rem;
+  }
+
+  .exh-registration__pattern {
+    display: none;
+  }
+
+  .exh-closing {
+    padding: 3rem 0;
+  }
+
+  .exh-closing__title {
+    font-size: 1.35rem;
+  }
+
+  .exh-closing__pattern {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .exh-intro {
+    padding: 2.5rem 0;
+  }
+
+  .exh-intro__title {
+    font-size: 1.3rem;
+  }
+
+  .exh-intro__text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .exh-objectives {
+    padding: 2.5rem 0;
+  }
+
+  .exh-objectives__title {
+    font-size: 1.3rem;
+  }
+
+  .exh-obj-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .exh-participants {
+    padding: 2.5rem 0;
+  }
+
+  .exh-participants__title {
+    font-size: 1.3rem;
+  }
+
+  .exh-tags {
+    gap: 0.5rem;
+  }
+
+  .exh-tag {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .exh-registration {
+    padding: 2.5rem 0;
+  }
+
+  .exh-reg-card__top {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .exh-reg-card__heading {
+    font-size: 1.1rem;
+  }
+
+  .exh-reg-card__body {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .exh-reg-step {
+    gap: 0.75rem;
+  }
+
+  .exh-reg-step__text {
+    font-size: 0.88rem;
+  }
+
+  .exh-closing {
+    padding: 2.5rem 0;
+  }
+
+  .exh-closing__title {
+    font-size: 1.2rem;
+  }
+
+  .exh-closing__text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+}
+
+@media print {
+  .exh-intro__pattern,
+  .exh-objectives__pattern,
+  .exh-participants__pattern,
+  .exh-registration__pattern,
+  .exh-closing__pattern,
+  .exh-reg-card__top::after {
+    display: none;
+  }
+
+  .exh-obj-card {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+    break-inside: avoid;
+  }
+
+  .exh-tag {
+    border: 1px solid var(--color-gray-300);
+    background: white;
+  }
+
+  .exh-reg-card {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+    break-inside: avoid;
+  }
+
+  .exh-reg-card__top {
+    background: var(--color-gray-100) !important;
+  }
+
+  .exh-reg-card__heading {
+    color: var(--color-gray-900);
+  }
+
+  .exh-closing {
+    background: var(--color-gray-100) !important;
+  }
+
+  .exh-closing__title {
+    color: var(--color-gray-900);
+  }
+
+  .exh-closing__text {
+    color: var(--color-gray-700);
+  }
+}

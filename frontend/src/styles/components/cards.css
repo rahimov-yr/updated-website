@@ -1,0 +1,77 @@
+/* ============================================
+   Card Components
+   ============================================ */
+
+/* Base Card */
+.card {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.card--elevated:hover {
+    transform: translateY(-4px);
+}
+
+/* Card Header */
+.card__header {
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--color-gray-100);
+}
+
+/* Card Body */
+.card__body {
+    padding: var(--space-6);
+}
+
+/* Card Footer */
+.card__footer {
+    padding: var(--space-4) var(--space-6);
+    background: var(--color-gray-50);
+    border-top: 1px solid var(--color-gray-100);
+}
+
+/* Card Image */
+.card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Card Title */
+.card__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: var(--space-2);
+}
+
+/* Card Text */
+.card__text {
+    color: var(--color-gray-600);
+    line-height: 1.6;
+}
+
+/* Glass Card */
+.card--glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Bordered Card */
+.card--bordered {
+    border: 1px solid var(--color-gray-200);
+    box-shadow: none;
+}
+
+.card--bordered:hover {
+    border-color: var(--color-accent);
+}

@@ -1,0 +1,40 @@
+# Vercel
+.vercel
+
+# Node
+node_modules
+frontend/dist
+
+# Rust
+backend/target
+
+# Claude
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+nul
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Database files (NEVER commit these!)
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+backend/data/
+backend/uploads/
+
+# VPS production data (NEVER commit these!)
+vps-data/
+
+# Environment files
+.env
+.env.local
+.env.production

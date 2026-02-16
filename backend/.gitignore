@@ -1,0 +1,19 @@
+# Rust
+/target/
+# Keep Cargo.lock for reproducible builds in production
+
+# Database
+/data/
+
+# Environment
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

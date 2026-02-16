@@ -1,0 +1,568 @@
+const scheduleDataRu = [
+  {
+    day: 1,
+    date: '25 мая 2026',
+    title: 'День 1: Церемония открытия',
+    shortTitle: 'Церемония открытия',
+    isOpen: true,
+    events: [
+      {
+        time: '08:30 – 10:00',
+        title: 'Регистрация участников',
+        description: 'Выдача бейджей и материалов конференции',
+        location: 'Фойе главного зала',
+        type: 'registration',
+      },
+      {
+        time: '10:00 – 11:30',
+        title: 'Торжественное открытие',
+        description: 'Приветственные речи глав делегаций',
+        location: 'Главный зал',
+        type: 'ceremony',
+      },
+      {
+        time: '11:30 – 12:00',
+        title: 'Кофе-брейк',
+        location: 'Фойе',
+        type: 'break',
+      },
+      {
+        time: '12:00 – 13:30',
+        title: 'Пленарное заседание высокого уровня',
+        description: 'Доклады министров и представителей международных организаций',
+        location: 'Главный зал',
+        type: 'plenary',
+      },
+      {
+        time: '13:30 – 15:00',
+        title: 'Обед',
+        location: 'Банкетный зал',
+        type: 'break',
+      },
+      {
+        time: '15:00 – 18:00',
+        title: 'Пленарное заседание (продолжение)',
+        description: 'Выступления делегаций стран-участниц',
+        location: 'Главный зал',
+        type: 'plenary',
+      },
+    ],
+  },
+  {
+    day: 2,
+    date: '26 мая 2026',
+    title: 'День 2: Тематические сессии',
+    shortTitle: 'Тематические сессии',
+    isOpen: false,
+    events: [
+      {
+        time: '09:00 – 10:30',
+        title: 'Сессия: Управление водными ресурсами',
+        description: 'Лучшие практики интегрированного управления водными ресурсами',
+        location: 'Зал A',
+        type: 'session',
+      },
+      {
+        time: '10:30 – 11:00',
+        title: 'Кофе-брейк',
+        location: 'Фойе',
+        type: 'break',
+      },
+      {
+        time: '11:00 – 12:30',
+        title: 'Сессия: Климат и водная безопасность',
+        description: 'Адаптация к изменению климата в водном секторе',
+        location: 'Зал B',
+        type: 'session',
+      },
+      {
+        time: '12:30 – 14:00',
+        title: 'Обед',
+        location: 'Банкетный зал',
+        type: 'break',
+      },
+      {
+        time: '14:00 – 15:30',
+        title: 'Сессия: Трансграничное сотрудничество',
+        description: 'Опыт совместного управления водными ресурсами',
+        location: 'Зал A',
+        type: 'session',
+      },
+      {
+        time: '15:30 – 17:00',
+        title: 'Сессия: Инновации в водной отрасли',
+        description: 'Технологические решения для устойчивого водопользования',
+        location: 'Зал B',
+        type: 'session',
+      },
+    ],
+  },
+  {
+    day: 3,
+    date: '27 мая 2026',
+    title: 'День 3: Интерактивные диалоги',
+    shortTitle: 'Интерактивные диалоги',
+    isOpen: false,
+    events: [
+      {
+        time: '09:00 – 11:00',
+        title: 'Многосторонний диалог',
+        description: 'Обсуждение путей достижения ЦУР 6',
+        location: 'Главный зал',
+        type: 'session',
+      },
+      {
+        time: '11:00 – 11:30',
+        title: 'Кофе-брейк',
+        location: 'Фойе',
+        type: 'break',
+      },
+      {
+        time: '11:30 – 13:00',
+        title: 'Презентации инновационных решений',
+        description: 'Демонстрация передовых технологий',
+        location: 'Выставочный зал',
+        type: 'session',
+      },
+      {
+        time: '13:00 – 14:30',
+        title: 'Обед',
+        location: 'Банкетный зал',
+        type: 'break',
+      },
+      {
+        time: '14:30 – 17:00',
+        title: 'Специальные мероприятия партнёров',
+        description: 'Параллельные сессии международных организаций',
+        location: 'Залы A, B, C',
+        type: 'session',
+      },
+    ],
+  },
+  {
+    day: 4,
+    date: '28 мая 2026',
+    title: 'День 4: Церемония закрытия',
+    shortTitle: 'Церемония закрытия',
+    isOpen: false,
+    events: [
+      {
+        time: '09:00 – 10:30',
+        title: 'Подготовка итоговых документов',
+        description: 'Финализация декларации конференции',
+        location: 'Зал заседаний',
+        type: 'plenary',
+      },
+      {
+        time: '10:30 – 11:00',
+        title: 'Кофе-брейк',
+        location: 'Фойе',
+        type: 'break',
+      },
+      {
+        time: '11:00 – 12:30',
+        title: 'Принятие итоговых документов',
+        description: 'Официальное принятие Душанбинской декларации',
+        location: 'Главный зал',
+        type: 'plenary',
+      },
+      {
+        time: '12:30 – 13:30',
+        title: 'Торжественная церемония закрытия',
+        description: 'Подведение итогов и закрытие конференции',
+        location: 'Главный зал',
+        type: 'ceremony',
+      },
+      {
+        time: '13:30 – 15:00',
+        title: 'Торжественный обед',
+        location: 'Банкетный зал',
+        type: 'break',
+      },
+    ],
+  },
+]
+
+const scheduleDataEn = [
+  {
+    day: 1,
+    date: 'May 25, 2026',
+    title: 'Day 1: Opening Ceremony',
+    shortTitle: 'Opening Ceremony',
+    isOpen: true,
+    events: [
+      {
+        time: '08:30 – 10:00',
+        title: 'Participant Registration',
+        description: 'Badge and conference materials distribution',
+        location: 'Main Hall Lobby',
+        type: 'registration',
+      },
+      {
+        time: '10:00 – 11:30',
+        title: 'Grand Opening',
+        description: 'Welcome speeches by heads of delegations',
+        location: 'Main Hall',
+        type: 'ceremony',
+      },
+      {
+        time: '11:30 – 12:00',
+        title: 'Coffee Break',
+        location: 'Foyer',
+        type: 'break',
+      },
+      {
+        time: '12:00 – 13:30',
+        title: 'High-Level Plenary Session',
+        description: 'Reports by ministers and representatives of international organizations',
+        location: 'Main Hall',
+        type: 'plenary',
+      },
+      {
+        time: '13:30 – 15:00',
+        title: 'Lunch',
+        location: 'Banquet Hall',
+        type: 'break',
+      },
+      {
+        time: '15:00 – 18:00',
+        title: 'Plenary Session (continued)',
+        description: 'Speeches by delegations of participating countries',
+        location: 'Main Hall',
+        type: 'plenary',
+      },
+    ],
+  },
+  {
+    day: 2,
+    date: 'May 26, 2026',
+    title: 'Day 2: Thematic Sessions',
+    shortTitle: 'Thematic Sessions',
+    isOpen: false,
+    events: [
+      {
+        time: '09:00 – 10:30',
+        title: 'Session: Water Resource Management',
+        description: 'Best practices in integrated water resource management',
+        location: 'Hall A',
+        type: 'session',
+      },
+      {
+        time: '10:30 – 11:00',
+        title: 'Coffee Break',
+        location: 'Foyer',
+        type: 'break',
+      },
+      {
+        time: '11:00 – 12:30',
+        title: 'Session: Climate and Water Security',
+        description: 'Climate change adaptation in the water sector',
+        location: 'Hall B',
+        type: 'session',
+      },
+      {
+        time: '12:30 – 14:00',
+        title: 'Lunch',
+        location: 'Banquet Hall',
+        type: 'break',
+      },
+      {
+        time: '14:00 – 15:30',
+        title: 'Session: Transboundary Cooperation',
+        description: 'Experience in joint water resource management',
+        location: 'Hall A',
+        type: 'session',
+      },
+      {
+        time: '15:30 – 17:00',
+        title: 'Session: Innovation in the Water Sector',
+        description: 'Technological solutions for sustainable water use',
+        location: 'Hall B',
+        type: 'session',
+      },
+    ],
+  },
+  {
+    day: 3,
+    date: 'May 27, 2026',
+    title: 'Day 3: Interactive Dialogues',
+    shortTitle: 'Interactive Dialogues',
+    isOpen: false,
+    events: [
+      {
+        time: '09:00 – 11:00',
+        title: 'Multilateral Dialogue',
+        description: 'Discussion on achieving SDG 6',
+        location: 'Main Hall',
+        type: 'session',
+      },
+      {
+        time: '11:00 – 11:30',
+        title: 'Coffee Break',
+        location: 'Foyer',
+        type: 'break',
+      },
+      {
+        time: '11:30 – 13:00',
+        title: 'Innovative Solutions Presentations',
+        description: 'Demonstration of advanced technologies',
+        location: 'Exhibition Hall',
+        type: 'session',
+      },
+      {
+        time: '13:00 – 14:30',
+        title: 'Lunch',
+        location: 'Banquet Hall',
+        type: 'break',
+      },
+      {
+        time: '14:30 – 17:00',
+        title: 'Partner Special Events',
+        description: 'Parallel sessions by international organizations',
+        location: 'Halls A, B, C',
+        type: 'session',
+      },
+    ],
+  },
+  {
+    day: 4,
+    date: 'May 28, 2026',
+    title: 'Day 4: Closing Ceremony',
+    shortTitle: 'Closing Ceremony',
+    isOpen: false,
+    events: [
+      {
+        time: '09:00 – 10:30',
+        title: 'Final Documents Preparation',
+        description: 'Finalization of conference declaration',
+        location: 'Meeting Room',
+        type: 'plenary',
+      },
+      {
+        time: '10:30 – 11:00',
+        title: 'Coffee Break',
+        location: 'Foyer',
+        type: 'break',
+      },
+      {
+        time: '11:00 – 12:30',
+        title: 'Adoption of Final Documents',
+        description: 'Official adoption of the Dushanbe Declaration',
+        location: 'Main Hall',
+        type: 'plenary',
+      },
+      {
+        time: '12:30 – 13:30',
+        title: 'Grand Closing Ceremony',
+        description: 'Summary and closing of the conference',
+        location: 'Main Hall',
+        type: 'ceremony',
+      },
+      {
+        time: '13:30 – 15:00',
+        title: 'Gala Lunch',
+        location: 'Banquet Hall',
+        type: 'break',
+      },
+    ],
+  },
+]
+
+const scheduleDataTj = [
+  {
+    day: 1,
+    date: '25 майи 2026',
+    title: 'Рӯзи 1: Маросими кушоиш',
+    shortTitle: 'Маросими кушоиш',
+    isOpen: true,
+    events: [
+      {
+        time: '08:30 – 10:00',
+        title: 'Бақайдгирии иштироккунандагон',
+        description: 'Додани беҷҳо ва маводҳои конфронс',
+        location: 'Фойеи толори асосӣ',
+        type: 'registration',
+      },
+      {
+        time: '10:00 – 11:30',
+        title: 'Кушоиши тантанавӣ',
+        description: 'Суханрониҳои хайрамақдамии сарони ҳайатҳо',
+        location: 'Толори асосӣ',
+        type: 'ceremony',
+      },
+      {
+        time: '11:30 – 12:00',
+        title: 'Танаффуси қаҳва',
+        location: 'Фойе',
+        type: 'break',
+      },
+      {
+        time: '12:00 – 13:30',
+        title: 'Ҷаласаи пленарии сатҳи баланд',
+        description: 'Гузоришҳои вазирон ва намояндагони ташкилотҳои байналмилалӣ',
+        location: 'Толори асосӣ',
+        type: 'plenary',
+      },
+      {
+        time: '13:30 – 15:00',
+        title: 'Хӯроки нисфирӯзӣ',
+        location: 'Толори банкет',
+        type: 'break',
+      },
+      {
+        time: '15:00 – 18:00',
+        title: 'Ҷаласаи пленарӣ (идома)',
+        description: 'Суханрониҳои ҳайатҳои кишварҳои иштироккунанда',
+        location: 'Толори асосӣ',
+        type: 'plenary',
+      },
+    ],
+  },
+  {
+    day: 2,
+    date: '26 майи 2026',
+    title: 'Рӯзи 2: Сессияҳои мавзӯӣ',
+    shortTitle: 'Сессияҳои мавзӯӣ',
+    isOpen: false,
+    events: [
+      {
+        time: '09:00 – 10:30',
+        title: 'Сессия: Идоракунии захираҳои обӣ',
+        description: 'Беҳтарин таҷрибаҳо дар идоракунии ягонаи захираҳои обӣ',
+        location: 'Толори A',
+        type: 'session',
+      },
+      {
+        time: '10:30 – 11:00',
+        title: 'Танаффуси қаҳва',
+        location: 'Фойе',
+        type: 'break',
+      },
+      {
+        time: '11:00 – 12:30',
+        title: 'Сессия: Иқлим ва амнияти обӣ',
+        description: 'Мутобиқшавӣ ба тағйирёбии иқлим дар соҳаи об',
+        location: 'Толори B',
+        type: 'session',
+      },
+      {
+        time: '12:30 – 14:00',
+        title: 'Хӯроки нисфирӯзӣ',
+        location: 'Толори банкет',
+        type: 'break',
+      },
+      {
+        time: '14:00 – 15:30',
+        title: 'Сессия: Ҳамкории марзгузар',
+        description: 'Таҷрибаи идоракунии муштараки захираҳои обӣ',
+        location: 'Толори A',
+        type: 'session',
+      },
+      {
+        time: '15:30 – 17:00',
+        title: 'Сессия: Навовариҳо дар соҳаи об',
+        description: 'Ҳалҳои технологӣ барои истифодаи устувори об',
+        location: 'Толори B',
+        type: 'session',
+      },
+    ],
+  },
+  {
+    day: 3,
+    date: '27 майи 2026',
+    title: 'Рӯзи 3: Гуфтугӯҳои интерактивӣ',
+    shortTitle: 'Гуфтугӯҳои интерактивӣ',
+    isOpen: false,
+    events: [
+      {
+        time: '09:00 – 11:00',
+        title: 'Гуфтугӯи бисёрҷонибӣ',
+        description: 'Муҳокимаи роҳҳои ноилшавӣ ба ҲРУ 6',
+        location: 'Толори асосӣ',
+        type: 'session',
+      },
+      {
+        time: '11:00 – 11:30',
+        title: 'Танаффуси қаҳва',
+        location: 'Фойе',
+        type: 'break',
+      },
+      {
+        time: '11:30 – 13:00',
+        title: 'Презентатсияҳои ҳалҳои навоварона',
+        description: 'Намоиши технологияҳои пешқадам',
+        location: 'Толори намоишгоҳ',
+        type: 'session',
+      },
+      {
+        time: '13:00 – 14:30',
+        title: 'Хӯроки нисфирӯзӣ',
+        location: 'Толори банкет',
+        type: 'break',
+      },
+      {
+        time: '14:30 – 17:00',
+        title: 'Чорабиниҳои махсуси шарикон',
+        description: 'Сессияҳои параллелии ташкилотҳои байналмилалӣ',
+        location: 'Толорҳои A, B, C',
+        type: 'session',
+      },
+    ],
+  },
+  {
+    day: 4,
+    date: '28 майи 2026',
+    title: 'Рӯзи 4: Маросими хотима',
+    shortTitle: 'Маросими хотима',
+    isOpen: false,
+    events: [
+      {
+        time: '09:00 – 10:30',
+        title: 'Тайёр кардани ҳуҷҷатҳои ниҳоӣ',
+        description: 'Ниҳоӣ кардани эъломияи конфронс',
+        location: 'Толори ҷаласа',
+        type: 'plenary',
+      },
+      {
+        time: '10:30 – 11:00',
+        title: 'Танаффуси қаҳва',
+        location: 'Фойе',
+        type: 'break',
+      },
+      {
+        time: '11:00 – 12:30',
+        title: 'Қабули ҳуҷҷатҳои ниҳоӣ',
+        description: 'Қабули расмии Эъломияи Душанбе',
+        location: 'Толори асосӣ',
+        type: 'plenary',
+      },
+      {
+        time: '12:30 – 13:30',
+        title: 'Маросими тантанавии хотима',
+        description: 'Ҷамъбаст ва хотимаи конфронс',
+        location: 'Толори асосӣ',
+        type: 'ceremony',
+      },
+      {
+        time: '13:30 – 15:00',
+        title: 'Хӯроки тантанавӣ',
+        location: 'Толори банкет',
+        type: 'break',
+      },
+    ],
+  },
+]
+
+export const getScheduleData = (language) => {
+  switch (language) {
+    case 'en':
+      return scheduleDataEn
+    case 'tj':
+      return scheduleDataTj
+    default:
+      return scheduleDataRu
+  }
+}
+
+// Default export for backwards compatibility
+export const scheduleData = scheduleDataRu

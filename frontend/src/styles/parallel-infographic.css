@@ -1,0 +1,163 @@
+/* ============================================
+   Parallel Events Page - Side Events
+   Prefix: prl-
+   ============================================ */
+
+/* ============================================
+   Statement Section - Centered intro
+   ============================================ */
+.prl-statement {
+  padding: 3.5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  text-align: center;
+}
+
+.prl-statement__pattern {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 300px;
+  height: 300px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.prl-statement .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prl-statement__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 1.25rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.prl-statement__text {
+  font-size: 1.05rem;
+  color: var(--color-gray-600);
+  line-height: 1.9;
+  margin: 0;
+  max-width: 760px;
+}
+
+/* ============================================
+   Notice Section - Info card
+   ============================================ */
+.prl-notice {
+  padding: 0 0 4rem;
+  background: white;
+}
+
+.prl-notice__card {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: var(--color-gray-50);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.prl-notice__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 163, 224, 0.12) 0%, rgba(30, 58, 95, 0.06) 100%);
+  color: var(--color-accent, #00a3e0);
+}
+
+.prl-notice__text {
+  font-size: 0.95rem;
+  color: var(--color-gray-600);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+  .prl-statement {
+    padding: 3rem 0;
+  }
+
+  .prl-statement__title {
+    font-size: 1.5rem;
+  }
+
+  .prl-statement__text {
+    font-size: 0.95rem;
+  }
+
+  .prl-statement__pattern {
+    display: none;
+  }
+
+  .prl-notice {
+    padding: 0 0 3rem;
+  }
+
+  .prl-notice__card {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prl-statement {
+    padding: 2.5rem 0;
+  }
+
+  .prl-statement__title {
+    font-size: 1.3rem;
+  }
+
+  .prl-statement__text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .prl-notice {
+    padding: 0 0 2.5rem;
+  }
+
+  .prl-notice__card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.25rem;
+  }
+
+  .prl-notice__text {
+    font-size: 0.88rem;
+  }
+}
+
+@media print {
+  .prl-statement__pattern {
+    display: none;
+  }
+
+  .prl-notice__card {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+  }
+}

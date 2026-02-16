@@ -1,0 +1,23 @@
+-- Seed data for Water Conference 2026
+
+-- Insert program days
+INSERT OR IGNORE INTO program_days (day_number, date, title_ru, title_en, title_tj, short_title_ru, short_title_en, short_title_tj) VALUES
+(1, '25 мая 2026', 'День 1 - Церемония открытия', 'Day 1 - Opening Ceremony', 'Рӯзи 1 - Маросими кушодашавӣ', 'Церемония открытия', 'Opening Ceremony', 'Маросими кушодашавӣ'),
+(2, '26 мая 2026', 'День 2 - Пленарные заседания', 'Day 2 - Plenary Sessions', 'Рӯзи 2 - Ҷаласаҳои пленарӣ', 'Пленарные заседания', 'Plenary Sessions', 'Ҷаласаҳои пленарӣ'),
+(3, '27 мая 2026', 'День 3 - Тематические сессии', 'Day 3 - Thematic Sessions', 'Рӯзи 3 - Сессияҳои мавзӯӣ', 'Тематические сессии', 'Thematic Sessions', 'Сессияҳои мавзӯӣ'),
+(4, '28 мая 2026', 'День 4 - Закрытие', 'Day 4 - Closing', 'Рӯзи 4 - Хотима', 'Закрытие', 'Closing', 'Хотима');
+
+-- Insert sample events for Day 1
+INSERT OR IGNORE INTO program_events (day_id, event_type, time_start, time_end, title_ru, title_en, title_tj, description_ru, description_en, description_tj, location_ru, location_en, location_tj, sort_order) VALUES
+(1, 'registration', '08:00', '09:00', 'Регистрация участников', 'Participant Registration', 'Бақайдгирии иштирокчиён', 'Получение бейджей и материалов конференции', 'Badge and conference materials pickup', 'Гирифтани бейҷҳо ва маводҳои конференсия', 'Фойе', 'Lobby', 'Фойе', 1),
+(1, 'ceremony', '09:00', '10:30', 'Церемония открытия', 'Opening Ceremony', 'Маросими кушодашавӣ', 'Приветственные речи глав государств и международных организаций', 'Welcome speeches from heads of state and international organizations', 'Суханрониҳои хайрамақдам аз сарварони давлатҳо ва созмонҳои байналмилалӣ', 'Главный зал', 'Main Hall', 'Толори асосӣ', 2),
+(1, 'break', '10:30', '11:00', 'Кофе-брейк', 'Coffee Break', 'Танаффус', NULL, NULL, NULL, 'Фойе', 'Lobby', 'Фойе', 3),
+(1, 'plenary', '11:00', '13:00', 'Пленарное заседание', 'Plenary Session', 'Ҷаласаи пленарӣ', 'Глобальные вызовы водной безопасности', 'Global water security challenges', 'Мушкилоти глобалии амнияти обӣ', 'Главный зал', 'Main Hall', 'Толори асосӣ', 4),
+(1, 'break', '13:00', '14:30', 'Обед', 'Lunch', 'Хӯроки нисфирӯзӣ', NULL, NULL, NULL, 'Ресторан', 'Restaurant', 'Ресторан', 5),
+(1, 'session', '14:30', '18:00', 'Тематические сессии', 'Thematic Sessions', 'Сессияҳои мавзӯӣ', 'Параллельные сессии по ключевым темам', 'Parallel sessions on key topics', 'Сессияҳои параллелӣ оид ба мавзӯъҳои асосӣ', 'Залы A, B, C', 'Halls A, B, C', 'Толорҳои A, B, C', 6);
+
+-- Insert sample news
+INSERT OR IGNORE INTO news (slug, category, title_ru, title_en, title_tj, excerpt_ru, excerpt_en, excerpt_tj, content_ru, content_en, content_tj, image, published_at) VALUES
+('tajikistan-to-host-un-water-conference', 'conference', 'Таджикистан готовится принять водную конференцию ООН', 'Tajikistan to Host UN Water Conference', 'Тоҷикистон омода аст конференсияи обии СММ-ро қабул кунад', 'Подготовка к крупнейшему международному событию в сфере водных ресурсов идет полным ходом.', 'Preparations for the largest international water resources event are in full swing.', 'Тайёрӣ ба бузургтарин рӯйдоди байналмилалӣ дар соҳаи захираҳои обӣ идома дорад.', 'Полный текст новости о подготовке к конференции...', 'Full news text about conference preparations...', 'Матни пурраи хабар дар бораи тайёрӣ ба конференсия...', '/assets/images/news-meeting.png', '2026-01-14'),
+('preliminary-program-published', 'program', 'Опубликована предварительная программа мероприятий', 'Preliminary Program Published', 'Барномаи пешакии чорабиниҳо нашр шуд', 'Ознакомьтесь с расписанием пленарных заседаний, тематических сессий и культурных мероприятий.', 'Check out the schedule of plenary sessions, thematic sessions and cultural events.', 'Бо ҷадвали ҷаласаҳои пленарӣ, сессияҳои мавзӯӣ ва чорабиниҳои фарҳангӣ шинос шавед.', 'Полный текст новости о программе...', 'Full news text about the program...', 'Матни пурраи хабар дар бораи барнома...', '/assets/images/news-tech.png', '2026-01-10'),
+('registration-open', 'registration', 'Открыта регистрация для международных делегаций', 'Registration Open for International Delegations', 'Бақайдгирӣ барои ҳайатҳои байналмилалӣ оғоз шуд', 'Представители более 150 стран смогут принять участие в конференции.', 'Representatives from over 150 countries will be able to participate in the conference.', 'Намояндагони зиёда аз 150 кишвар метавонанд дар конференсия иштирок кунанд.', 'Полный текст новости о регистрации...', 'Full news text about registration...', 'Матни пурраи хабар дар бораи бақайдгирӣ...', '/assets/images/news-glacier.png', '2026-01-05');

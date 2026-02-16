@@ -1,0 +1,64 @@
+.registrations-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.reg-stat {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.registrations-filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.reg-name {
+  font-weight: 500;
+  color: #1e3a5f;
+}
+
+.reg-type {
+  font-size: 12px;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+.reg-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.reg-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reg-detail-full {
+  grid-column: span 2;
+}
+
+.reg-detail-label {
+  font-size: 12px;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.reg-detail-value {
+  font-size: 14px;
+  color: #1e3a5f;
+}
+
+@media (max-width: 768px) {
+  .reg-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reg-detail-full {
+    grid-column: span 1;
+  }
+}

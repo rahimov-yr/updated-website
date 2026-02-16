@@ -1,0 +1,40 @@
+/* ============================================
+   Water Conference 2026 - Main Stylesheet
+   Organized CSS Architecture
+   ============================================ */
+
+/* ===========================================
+   1. Base Styles
+   =========================================== */
+@import './base/variables.css';
+@import './base/reset.css';
+@import './base/typography.css';
+
+/* ===========================================
+   2. Utilities
+   =========================================== */
+@import './utilities/layout.css';
+@import './utilities/animations.css';
+
+/* ===========================================
+   3. Components
+   =========================================== */
+@import './components/buttons.css';
+@import './components/cards.css';
+@import './components/header.css';
+@import './components/footer.css';
+
+/* ===========================================
+   4. Sections
+   =========================================== */
+@import './sections/hero.css';
+@import './sections/news.css';
+@import './sections/program.css';
+@import './sections/partners.css';
+
+/* ===========================================
+   5. Legacy Styles (to be migrated)
+   Import the original globals.css for styles
+   not yet migrated to the new structure
+   =========================================== */
+@import './globals.css';

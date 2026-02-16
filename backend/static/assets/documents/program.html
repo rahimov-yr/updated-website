@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программа конференции - Душанбе 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #1e293b;
+            background: #fff;
+        }
+
+        .page {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 15mm 20mm;
+            background: #fff;
+        }
+
+        @media print {
+            .page {
+                padding: 10mm 15mm;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #00a3e0;
+        }
+
+        .logo {
+            max-width: 300px;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 24pt;
+            color: #1e3a5f;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 14pt;
+            color: #2d5a87;
+            font-weight: 600;
+        }
+
+        .info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            font-size: 12pt;
+            color: #475569;
+        }
+
+        .day-section {
+            margin-bottom: 30px;
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .day-title {
+            font-size: 16pt;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .day-date {
+            font-size: 11pt;
+            opacity: 0.9;
+        }
+
+        .events-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .events-table th,
+        .events-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .events-table th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: #1e3a5f;
+            font-size: 10pt;
+        }
+
+        .events-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .time-cell {
+            width: 130px;
+            font-weight: 600;
+            color: #00a3e0;
+            white-space: nowrap;
+        }
+
+        .event-title {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .event-desc {
+            font-size: 10pt;
+            color: #64748b;
+            margin-top: 3px;
+        }
+
+        .location-cell {
+            width: 150px;
+            color: #475569;
+            font-size: 10pt;
+        }
+
+        .event-type {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+
+        .type-ceremony { background: #fef3c7; color: #92400e; }
+        .type-plenary { background: #dbeafe; color: #1e40af; }
+        .type-session { background: #d1fae5; color: #065f46; }
+        .type-break { background: #f3f4f6; color: #6b7280; }
+        .type-registration { background: #ede9fe; color: #5b21b6; }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+            font-size: 10pt;
+            color: #64748b;
+        }
+
+        .footer-logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1 class="title">ПРОГРАММА КОНФЕРЕНЦИИ</h1>
+            <p class="subtitle">4-ая Международная конференция высокого уровня<br>«Вода для устойчивого развития» 2018-2028</p>
+            <div class="info">
+                <span>25-28 мая 2026</span>
+                <span>Кохи Сомон, Душанбе</span>
+            </div>
+        </div>
+
+        <!-- День 1 -->
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-title">День 1: Церемония открытия</div>
+                <div class="day-date">25 мая 2026</div>
+            </div>
+            <table class="events-table">
+                <thead>
+                    <tr>
+                        <th>Время</th>
+                        <th>Мероприятие</th>
+                        <th>Место</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-cell">08:30 – 10:00</td>
+                        <td>
+                            <div class="event-title">Регистрация участников</div>
+                            <div class="event-desc">Выдача бейджей и материалов конференции</div>
+                        </td>
+                        <td class="location-cell">Фойе главного зала</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:00 – 11:30</td>
+                        <td>
+                            <div class="event-title">Торжественное открытие</div>
+                            <div class="event-desc">Приветственные речи глав делегаций</div>
+                        </td>
+                        <td class="location-cell">Главный зал</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:30 – 12:00</td>
+                        <td>
+                            <div class="event-title">Кофе-брейк</div>
+                        </td>
+                        <td class="location-cell">Фойе</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:00 – 13:30</td>
+                        <td>
+                            <div class="event-title">Пленарное заседание высокого уровня</div>
+                            <div class="event-desc">Доклады министров и представителей международных организаций</div>
+                        </td>
+                        <td class="location-cell">Главный зал</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">13:30 – 15:00</td>
+                        <td>
+                            <div class="event-title">Обед</div>
+                        </td>
+                        <td class="location-cell">Банкетный зал</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">15:00 – 18:00</td>
+                        <td>
+                            <div class="event-title">Пленарное заседание (продолжение)</div>
+                            <div class="event-desc">Выступления делегаций стран-участниц</div>
+                        </td>
+                        <td class="location-cell">Главный зал</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- День 2 -->
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-title">День 2: Тематические сессии</div>
+                <div class="day-date">26 мая 2026</div>
+            </div>
+            <table class="events-table">
+                <thead>
+                    <tr>
+                        <th>Время</th>
+                        <th>Мероприятие</th>
+                        <th>Место</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-cell">09:00 – 10:30</td>
+                        <td>
+                            <div class="event-title">Сессия: Управление водными ресурсами</div>
+                            <div class="event-desc">Лучшие практики интегрированного управления водными ресурсами</div>
+                        </td>
+                        <td class="location-cell">Зал A</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:30 – 11:00</td>
+                        <td>
+                            <div class="event-title">Кофе-брейк</div>
+                        </td>
+                        <td class="location-cell">Фойе</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:00 – 12:30</td>
+                        <td>
+                            <div class="event-title">Сессия: Климат и водная безопасность</div>
+                            <div class="event-desc">Адаптация к изменению климата в водном секторе</div>
+                        </td>
+                        <td class="location-cell">Зал B</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:30 – 14:00</td>
+                        <td>
+                            <div class="event-title">Обед</div>
+                        </td>
+                        <td class="location-cell">Банкетный зал</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">14:00 – 15:30</td>
+                        <td>
+                            <div class="event-title">Сессия: Трансграничное сотрудничество</div>
+                            <div class="event-desc">Опыт совместного управления водными ресурсами</div>
+                        </td>
+                        <td class="location-cell">Зал A</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">15:30 – 17:00</td>
+                        <td>
+                            <div class="event-title">Сессия: Инновации в водной отрасли</div>
+                            <div class="event-desc">Технологические решения для устойчивого водопользования</div>
+                        </td>
+                        <td class="location-cell">Зал B</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- День 3 -->
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-title">День 3: Интерактивные диалоги</div>
+                <div class="day-date">27 мая 2026</div>
+            </div>
+            <table class="events-table">
+                <thead>
+                    <tr>
+                        <th>Время</th>
+                        <th>Мероприятие</th>
+                        <th>Место</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-cell">09:00 – 11:00</td>
+                        <td>
+                            <div class="event-title">Многосторонний диалог</div>
+                            <div class="event-desc">Обсуждение путей достижения ЦУР 6</div>
+                        </td>
+                        <td class="location-cell">Главный зал</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:00 – 11:30</td>
+                        <td>
+                            <div class="event-title">Кофе-брейк</div>
+                        </td>
+                        <td class="location-cell">Фойе</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:30 – 13:00</td>
+                        <td>
+                            <div class="event-title">Презентации инновационных решений</div>
+                            <div class="event-desc">Демонстрация передовых технологий</div>
+                        </td>
+                        <td class="location-cell">Выставочный зал</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">13:00 – 14:30</td>
+                        <td>
+                            <div class="event-title">Обед</div>
+                        </td>
+                        <td class="location-cell">Банкетный зал</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">14:30 – 17:00</td>
+                        <td>
+                            <div class="event-title">Специальные мероприятия партнёров</div>
+                            <div class="event-desc">Параллельные сессии международных организаций</div>
+                        </td>
+                        <td class="location-cell">Залы A, B, C</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- День 4 -->
+        <div class="day-section">
+            <div class="day-header">
+                <div class="day-title">День 4: Церемония закрытия</div>
+                <div class="day-date">28 мая 2026</div>
+            </div>
+            <table class="events-table">
+                <thead>
+                    <tr>
+                        <th>Время</th>
+                        <th>Мероприятие</th>
+                        <th>Место</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-cell">09:00 – 10:30</td>
+                        <td>
+                            <div class="event-title">Подготовка итоговых документов</div>
+                            <div class="event-desc">Финализация декларации конференции</div>
+                        </td>
+                        <td class="location-cell">Зал заседаний</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:30 – 11:00</td>
+                        <td>
+                            <div class="event-title">Кофе-брейк</div>
+                        </td>
+                        <td class="location-cell">Фойе</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:00 – 12:30</td>
+                        <td>
+                            <div class="event-title">Принятие итоговых документов</div>
+                            <div class="event-desc">Официальное принятие Душанбинской декларации</div>
+                        </td>
+                        <td class="location-cell">Главный зал</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:30 – 13:30</td>
+                        <td>
+                            <div class="event-title">Торжественная церемония закрытия</div>
+                            <div class="event-desc">Подведение итогов и закрытие конференции</div>
+                        </td>
+                        <td class="location-cell">Главный зал</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">13:30 – 15:00</td>
+                        <td>
+                            <div class="event-title">Торжественный обед</div>
+                        </td>
+                        <td class="location-cell">Банкетный зал</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p><strong>4-ая Международная конференция высокого уровня</strong></p>
+            <p>«Вода для устойчивого развития» 2018-2028</p>
+            <p style="margin-top: 10px;">Душанбе, Республика Таджикистан | 25-28 мая 2026</p>
+        </div>
+    </div>
+</body>
+</html>

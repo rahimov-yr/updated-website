@@ -1,0 +1,737 @@
+/* ============================================
+   Cultural Events Page - Heritage Showcase
+   Prefix: prl-
+   ============================================ */
+
+/* ============================================
+   Intro Section - Modern editorial quote
+   ============================================ */
+.prl-intro {
+  padding: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+
+.prl-intro__pattern {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 280px;
+  height: 280px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.prl-intro .container {
+  position: relative;
+  z-index: 2;
+}
+
+.prl-intro__text {
+  font-size: 1.1rem;
+  color: var(--color-gray-600);
+  line-height: 1.9;
+  margin: 0;
+  text-align: center;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ============================================
+   Activities Section - What to experience
+   ============================================ */
+.prl-activities {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-gray-50);
+}
+
+.prl-activities__pattern {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 280px;
+  height: 280px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.prl-activities .container {
+  position: relative;
+  z-index: 2;
+}
+
+.prl-activities__header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.prl-activities__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.prl-activities__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.prl-act-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.prl-act {
+  background: white;
+  border-radius: 18px;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.prl-act:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 12px 28px rgba(30, 58, 95, 0.1);
+}
+
+.prl-act__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 163, 224, 0.1) 0%, rgba(30, 58, 95, 0.06) 100%);
+  color: var(--color-accent, #00a3e0);
+  margin: 0 auto 1rem;
+}
+
+.prl-act__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.prl-act__desc {
+  font-size: 0.85rem;
+  color: var(--color-gray-500);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================
+   Heritage Section - Shashmaqom, Falak, Chakan
+   ============================================ */
+.prl-heritage {
+  padding: 4.5rem 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(175deg, #f0f4f8 0%, #f8fafc 50%, #f0f7ff 100%);
+}
+
+.prl-heritage__pattern {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 280px;
+  height: 280px;
+  background: url('/assets/images/pattern_header_left.png') no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+  transform: scaleX(-1);
+}
+
+.prl-heritage .container {
+  position: relative;
+  z-index: 2;
+}
+
+.prl-heritage__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.prl-heritage__title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.6rem;
+  letter-spacing: -0.02em;
+}
+
+.prl-heritage__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prl-heritage-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Card – full-width with floating bg icons */
+.prl-heritage-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.35s ease;
+}
+
+.prl-heritage-item:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 14px 36px rgba(30, 58, 95, 0.12);
+}
+
+/* Floating background icons container */
+.prl-heritage-item__icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.prl-heritage-item__float {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.35;
+  transition: opacity 0.4s ease;
+}
+
+.prl-heritage-item:hover .prl-heritage-item__float {
+  opacity: 0.5;
+}
+
+/* Color per card variant — SVG icons use currentColor, Chakan img uses filter */
+.prl-heritage-item--navy .prl-heritage-item__float {
+  color: var(--color-primary-dark, #1e3a5f);
+}
+
+.prl-heritage-item--teal .prl-heritage-item__float {
+  color: #0077a8;
+}
+
+.prl-heritage-item--purple .prl-heritage-item__float {
+  color: #7c3aed;
+}
+
+.prl-heritage-item--purple .prl-heritage-item__float {
+  opacity: 1;
+}
+
+.prl-heritage-item--purple:hover .prl-heritage-item__float {
+  opacity: 1;
+}
+
+.prl-heritage-item--purple .prl-heritage-item__float img {
+  filter: sepia(100%) saturate(900%) hue-rotate(240deg) brightness(0.85);
+}
+
+/* 5 scattered positions + animations */
+.prl-heritage-item__float--1 {
+  top: 12%;
+  right: 6%;
+  animation: prlFloat1 8s ease-in-out infinite;
+}
+
+.prl-heritage-item__float--2 {
+  bottom: 15%;
+  right: 18%;
+  animation: prlFloat2 10s ease-in-out infinite 1s;
+}
+
+.prl-heritage-item__float--3 {
+  top: 50%;
+  right: 35%;
+  animation: prlFloat3 9s ease-in-out infinite 0.5s;
+}
+
+.prl-heritage-item__float--4 {
+  top: 8%;
+  right: 50%;
+  animation: prlFloat4 11s ease-in-out infinite 2s;
+}
+
+.prl-heritage-item__float--5 {
+  bottom: 10%;
+  right: 55%;
+  animation: prlFloat5 7s ease-in-out infinite 1.5s;
+}
+
+/* Drift animations — each icon follows a unique path */
+@keyframes prlFloat1 {
+  0%, 100% { transform: translate(0, 0) rotate(-15deg); }
+  25%      { transform: translate(-8px, 6px) rotate(-5deg); }
+  50%      { transform: translate(4px, -10px) rotate(-20deg); }
+  75%      { transform: translate(-5px, -4px) rotate(-10deg); }
+}
+
+@keyframes prlFloat2 {
+  0%, 100% { transform: translate(0, 0) rotate(20deg); }
+  33%      { transform: translate(10px, -8px) rotate(10deg); }
+  66%      { transform: translate(-6px, 5px) rotate(28deg); }
+}
+
+@keyframes prlFloat3 {
+  0%, 100% { transform: translateY(-50%) rotate(-8deg); }
+  25%      { transform: translate(6px, calc(-50% + 8px)) rotate(0deg); }
+  50%      { transform: translate(-4px, calc(-50% - 6px)) rotate(-14deg); }
+  75%      { transform: translate(8px, calc(-50% + 3px)) rotate(-4deg); }
+}
+
+@keyframes prlFloat4 {
+  0%, 100% { transform: translate(0, 0) rotate(12deg); }
+  30%      { transform: translate(-7px, 10px) rotate(4deg); }
+  60%      { transform: translate(5px, -7px) rotate(18deg); }
+}
+
+@keyframes prlFloat5 {
+  0%, 100% { transform: translate(0, 0) rotate(-25deg); }
+  20%      { transform: translate(6px, -5px) rotate(-18deg); }
+  50%      { transform: translate(-8px, 8px) rotate(-30deg); }
+  80%      { transform: translate(3px, -3px) rotate(-22deg); }
+}
+
+/* Content area */
+.prl-heritage-item__content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 2.5rem;
+}
+
+.prl-heritage-item__head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.prl-heritage-item__name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Name colors per variant */
+.prl-heritage-item--navy .prl-heritage-item__name {
+  color: var(--color-primary-dark);
+}
+
+.prl-heritage-item--teal .prl-heritage-item__name {
+  color: #0077a8;
+}
+
+.prl-heritage-item--purple .prl-heritage-item__name {
+  color: #7c3aed;
+}
+
+.prl-heritage-item__tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Tag colors per variant */
+.prl-heritage-item--navy .prl-heritage-item__tag {
+  background: rgba(30, 58, 95, 0.08);
+  color: var(--color-primary-dark);
+  border: 1px solid rgba(30, 58, 95, 0.15);
+}
+
+.prl-heritage-item--teal .prl-heritage-item__tag {
+  background: rgba(0, 119, 168, 0.08);
+  color: #0077a8;
+  border: 1px solid rgba(0, 119, 168, 0.15);
+}
+
+.prl-heritage-item--purple .prl-heritage-item__tag {
+  background: rgba(124, 58, 237, 0.08);
+  color: #7c3aed;
+  border: 1px solid rgba(124, 58, 237, 0.15);
+}
+
+/* Left accent bar */
+.prl-heritage-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  z-index: 2;
+}
+
+.prl-heritage-item--navy::before {
+  background: linear-gradient(180deg, var(--color-primary-dark), #244a73);
+}
+
+.prl-heritage-item--teal::before {
+  background: linear-gradient(180deg, #0077a8, #009cc7);
+}
+
+.prl-heritage-item--purple::before {
+  background: linear-gradient(180deg, #7c3aed, #9b5dfa);
+}
+
+.prl-heritage-item__text {
+  font-size: 0.92rem;
+  color: var(--color-gray-600);
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================
+   Music & Folk Section - Brief note
+   ============================================ */
+.prl-folk {
+  padding: 3.5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-gray-50);
+  text-align: center;
+}
+
+.prl-folk__pattern {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 240px;
+  height: 240px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.prl-folk .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prl-folk__text {
+  font-size: 1.05rem;
+  color: var(--color-gray-600);
+  line-height: 1.9;
+  margin: 0;
+  max-width: 740px;
+}
+
+/* ============================================
+   Closing Invitation - Dark banner
+   ============================================ */
+.prl-closing {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+
+.prl-closing__pattern {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 260px;
+  height: 260px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.prl-closing .container {
+  position: relative;
+  z-index: 2;
+}
+
+.prl-closing__card {
+  padding: 2.5rem 3rem;
+  background: var(--color-gray-50);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.prl-closing__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+.prl-closing__text {
+  font-size: 0.95rem;
+  color: var(--color-gray-600);
+  line-height: 1.85;
+  margin: 0 auto;
+  max-width: 720px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 1024px) {
+  .prl-act-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media (max-width: 768px) {
+  .prl-intro {
+    padding: 2.5rem 0;
+  }
+
+  .prl-intro__text {
+    font-size: 0.95rem;
+  }
+
+  .prl-intro__pattern {
+    display: none;
+  }
+
+  .prl-activities {
+    padding: 3rem 0;
+  }
+
+  .prl-act-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .prl-act {
+    padding: 1.5rem;
+  }
+
+  .prl-activities__pattern {
+    display: none;
+  }
+
+  .prl-heritage {
+    padding: 3rem 0;
+  }
+
+  .prl-heritage-item__content {
+    padding: 1.75rem 1.75rem;
+  }
+
+  .prl-heritage-item__name {
+    font-size: 1.15rem;
+  }
+
+  .prl-heritage-item__float {
+    opacity: 0.2;
+  }
+
+  .prl-heritage__pattern {
+    display: none;
+  }
+
+  .prl-folk {
+    padding: 3rem 0;
+  }
+
+  .prl-folk__pattern {
+    display: none;
+  }
+
+  .prl-closing {
+    padding: 3rem 0;
+  }
+
+  .prl-closing__card {
+    padding: 2rem;
+  }
+
+  .prl-closing__title {
+    font-size: 1.3rem;
+  }
+
+  .prl-closing__pattern {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .prl-intro {
+    padding: 2rem 0;
+  }
+
+  .prl-intro__text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .prl-activities {
+    padding: 2.5rem 0;
+  }
+
+  .prl-activities__title {
+    font-size: 1.3rem;
+  }
+
+  .prl-act-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prl-act {
+    padding: 1.25rem;
+  }
+
+  .prl-heritage {
+    padding: 2.5rem 0;
+  }
+
+  .prl-heritage__title {
+    font-size: 1.3rem;
+  }
+
+  .prl-heritage-item__content {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .prl-heritage-item__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .prl-heritage-item__name {
+    font-size: 1.1rem;
+  }
+
+  .prl-heritage-item__text {
+    font-size: 0.88rem;
+  }
+
+  .prl-heritage-item__float {
+    display: none;
+  }
+
+  .prl-folk {
+    padding: 2.5rem 0;
+  }
+
+  .prl-folk__text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .prl-closing {
+    padding: 2.5rem 0;
+  }
+
+  .prl-closing__card {
+    padding: 1.5rem;
+  }
+
+  .prl-closing__title {
+    font-size: 1.15rem;
+  }
+
+  .prl-closing__text {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+}
+
+@media print {
+  .prl-intro__pattern,
+  .prl-activities__pattern,
+  .prl-heritage__pattern,
+  .prl-folk__pattern,
+  .prl-closing__pattern {
+    display: none;
+  }
+
+  .prl-act {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+    break-inside: avoid;
+  }
+
+  .prl-heritage-item {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+    break-inside: avoid;
+  }
+
+  .prl-heritage-item::before,
+  .prl-heritage-item__icons {
+    display: none;
+  }
+
+  .prl-heritage-item__name {
+    color: var(--color-gray-900) !important;
+  }
+
+  .prl-heritage-item__tag {
+    background: var(--color-gray-200) !important;
+    color: var(--color-gray-700) !important;
+    border-color: var(--color-gray-400) !important;
+  }
+
+  .prl-closing__card {
+    background: white;
+    border: 1px solid var(--color-gray-300);
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .prl-heritage-item__float {
+    animation: none !important;
+  }
+}

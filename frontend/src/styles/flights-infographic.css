@@ -1,0 +1,648 @@
+/* ============================================
+   Flights Page – Aviation / Boarding Pass Theme
+   Prefix: flt-
+   Unique: route tags, destination map grid,
+           airport info card, carrier strip
+   ============================================ */
+
+/* ============================================
+   Intro
+   ============================================ */
+.flt-intro {
+  padding: 4rem 0 3rem;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.flt-intro__pattern {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 260px;
+  height: 260px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.025);
+}
+
+.flt-intro .container {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.flt-intro__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1.1rem;
+  border: 2px solid rgba(0, 119, 168, 0.2);
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0077a8;
+  margin-bottom: 1.25rem;
+}
+
+.flt-intro__badge-icon {
+  display: flex;
+  color: #0077a8;
+}
+
+.flt-intro__title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 1.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.flt-intro__text {
+  font-size: 1rem;
+  color: var(--color-gray-500);
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================
+   Destinations – Route tag cloud
+   ============================================ */
+.flt-destinations {
+  padding: 4rem 0;
+  background: var(--color-gray-50);
+  position: relative;
+  overflow: hidden;
+}
+
+.flt-destinations__pattern {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 260px;
+  height: 260px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.025);
+}
+
+.flt-destinations .container {
+  position: relative;
+  z-index: 2;
+}
+
+.flt-destinations__header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.flt-destinations__title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.flt-destinations__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Route tags */
+.flt-routes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.flt-route {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.1rem;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.flt-route:hover {
+  border-color: rgba(0, 163, 224, 0.2);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 6px 16px rgba(30, 58, 95, 0.06);
+}
+
+.flt-route__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Region color coding */
+.flt-route--cis .flt-route__dot       { background: #7c3aed; }
+.flt-route--mideast .flt-route__dot   { background: #d97706; }
+.flt-route--europe .flt-route__dot    { background: #059669; }
+.flt-route--asia .flt-route__dot      { background: #e11d48; }
+.flt-route--caucasus .flt-route__dot  { background: #0077a8; }
+
+/* Region legend */
+.flt-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.flt-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gray-400);
+}
+
+.flt-legend__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.flt-legend__dot--cis      { background: #7c3aed; }
+.flt-legend__dot--mideast  { background: #d97706; }
+.flt-legend__dot--europe   { background: #059669; }
+.flt-legend__dot--asia     { background: #e11d48; }
+.flt-legend__dot--caucasus { background: #0077a8; }
+
+/* ============================================
+   Airport Info Card
+   ============================================ */
+.flt-airport {
+  padding: 4rem 0;
+  background: white;
+}
+
+.flt-airport .container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.flt-airport__card {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, #1a3352 100%);
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.flt-airport__card-pattern {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 180px;
+  height: 180px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+.flt-airport__body {
+  flex: 1;
+  padding: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.flt-airport__code {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.flt-airport__name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.flt-airport__location {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.flt-airport__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.15rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.flt-airport__link:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.flt-airport__link-icon {
+  display: flex;
+  color: var(--color-accent-light, #7dd3fc);
+}
+
+/* Side info strip */
+.flt-airport__side {
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2.5rem 2rem;
+  background: rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 1;
+}
+
+.flt-airport__stat {
+  text-align: center;
+}
+
+.flt-airport__stat-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+  margin: 0;
+  line-height: 1;
+}
+
+.flt-airport__stat-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0.3rem 0 0;
+}
+
+/* ============================================
+   Carriers Info
+   ============================================ */
+.flt-carriers {
+  padding: 0 0 4rem;
+  background: white;
+}
+
+.flt-carriers .container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.flt-carriers__card {
+  background: var(--color-gray-50);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 18px;
+  padding: 2rem 2.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.flt-carriers__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--color-accent, #00a3e0);
+  flex-shrink: 0;
+}
+
+.flt-carriers__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.flt-carriers__title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.35rem;
+}
+
+.flt-carriers__text {
+  font-size: 0.86rem;
+  color: var(--color-gray-500);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ============================================
+   Closing
+   ============================================ */
+.flt-closing {
+  padding: 3.5rem 0 4rem;
+  background: var(--color-gray-50);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.flt-closing__pattern {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  filter: brightness(0) opacity(0.025);
+}
+
+.flt-closing .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flt-closing__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.flt-closing__text {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 560px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+  .flt-intro {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .flt-intro__title {
+    font-size: 1.5rem;
+  }
+
+  .flt-intro__text {
+    font-size: 0.93rem;
+  }
+
+  .flt-intro__pattern {
+    display: none;
+  }
+
+  .flt-destinations {
+    padding: 3rem 0;
+  }
+
+  .flt-destinations__title {
+    font-size: 1.35rem;
+  }
+
+  .flt-destinations__pattern {
+    display: none;
+  }
+
+  .flt-route {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.9rem;
+  }
+
+  .flt-airport__card {
+    flex-direction: column;
+  }
+
+  .flt-airport__side {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1.5rem 2rem;
+    gap: 1rem;
+  }
+
+  .flt-airport__body {
+    padding: 2rem;
+  }
+
+  .flt-airport__card-pattern {
+    display: none;
+  }
+
+  .flt-airport {
+    padding: 3rem 0;
+  }
+
+  .flt-carriers__card {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 1.75rem;
+  }
+
+  .flt-closing {
+    padding: 3rem 0;
+  }
+
+  .flt-closing__title {
+    font-size: 1.3rem;
+  }
+
+  .flt-closing__pattern {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .flt-intro {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .flt-intro__title {
+    font-size: 1.3rem;
+  }
+
+  .flt-intro__text {
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+
+  .flt-destinations {
+    padding: 2.5rem 0;
+  }
+
+  .flt-destinations__title {
+    font-size: 1.2rem;
+  }
+
+  .flt-routes {
+    gap: 0.5rem;
+  }
+
+  .flt-route {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 10px;
+  }
+
+  .flt-legend {
+    gap: 0.85rem;
+  }
+
+  .flt-legend__item {
+    font-size: 0.6rem;
+  }
+
+  .flt-airport {
+    padding: 2.5rem 0;
+  }
+
+  .flt-airport__card {
+    border-radius: 18px;
+  }
+
+  .flt-airport__body {
+    padding: 1.5rem;
+  }
+
+  .flt-airport__code {
+    font-size: 0.78rem;
+  }
+
+  .flt-airport__name {
+    font-size: 1.1rem;
+  }
+
+  .flt-airport__side {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .flt-airport__stat-value {
+    font-size: 1.2rem;
+  }
+
+  .flt-carriers {
+    padding: 0 0 2.5rem;
+  }
+
+  .flt-carriers__card {
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+  }
+
+  .flt-carriers__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .flt-closing {
+    padding: 2.5rem 0;
+  }
+
+  .flt-closing__title {
+    font-size: 1.15rem;
+  }
+
+  .flt-closing__text {
+    font-size: 0.88rem;
+  }
+}
+
+@media print {
+  .flt-intro__pattern,
+  .flt-destinations__pattern,
+  .flt-closing__pattern,
+  .flt-airport__card-pattern {
+    display: none;
+  }
+
+  .flt-route {
+    border: 1px solid var(--color-gray-300);
+    box-shadow: none;
+  }
+
+  .flt-airport__card {
+    background: var(--color-gray-200) !important;
+  }
+
+  .flt-airport__name,
+  .flt-airport__code,
+  .flt-airport__stat-value {
+    color: var(--color-gray-900);
+  }
+
+  .flt-airport__location,
+  .flt-airport__stat-label {
+    color: var(--color-gray-600);
+  }
+
+  .flt-airport__link {
+    color: var(--color-gray-900);
+    border-color: var(--color-gray-400);
+    background: transparent;
+  }
+
+  .flt-airport__side {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .flt-carriers__card {
+    border: 1px solid var(--color-gray-300);
+    box-shadow: none;
+  }
+}

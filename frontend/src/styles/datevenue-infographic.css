@@ -1,0 +1,480 @@
+/* ============================================
+   Date & Venue Page – Matches Introduction hero card style
+   ============================================ */
+
+/* ============================================
+   Banner Section
+   ============================================ */
+.dv-banner {
+  padding: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+
+.dv-banner__pattern {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 280px;
+  height: 280px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.03);
+}
+
+.dv-banner .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero card – mirrors .intro-hero-card */
+.dv-banner__card {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: white;
+  border-radius: 20px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.04),
+    0 10px 20px rgba(0, 0, 0, 0.06),
+    0 20px 40px rgba(0, 163, 224, 0.08);
+  border: 1px solid rgba(0, 163, 224, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dv-banner__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%);
+}
+
+/* Subtle water ripple background */
+.dv-banner__water-bg {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 350px;
+  height: 350px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 163, 224, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 30% 70%, rgba(45, 90, 135, 0.04) 0%, transparent 40%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Body – left side with text */
+.dv-banner__body {
+  flex: 1;
+  padding: 2.5rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.dv-banner__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 1.25rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.dv-banner__desc {
+  font-size: 1.05rem;
+  color: var(--color-gray-600);
+  line-height: 1.8;
+  margin: 0 0 1.25rem;
+}
+
+.dv-banner__venue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: var(--color-gray-50);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 100px;
+  color: var(--color-primary-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.dv-banner__venue svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Badge – right side date block */
+.dv-banner__badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: white;
+  text-align: center;
+  min-width: 160px;
+  position: relative;
+  z-index: 1;
+}
+
+.dv-banner__badge-icon {
+  opacity: 0.5;
+  margin-bottom: 0.5rem;
+}
+
+.dv-banner__badge-date {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.dv-banner__badge-month {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-top: 0.35rem;
+}
+
+.dv-banner__badge-city {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ============================================
+   Day Cards - Horizontal Grid
+   ============================================ */
+.dv-days {
+  padding: 4rem 0;
+  position: relative;
+  background: var(--color-gray-50);
+}
+
+.dv-days__pattern {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 200px;
+  height: 200px;
+  background: url('/assets/images/pattern_header_left.png') no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.05);
+  transform: scaleX(-1) rotate(180deg);
+}
+
+.dv-days__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 2rem;
+  letter-spacing: -0.02em;
+}
+
+.dv-days__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual day card */
+.dv-day-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.dv-day-card:hover {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 12px 28px rgba(0, 163, 224, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Card top - date band */
+.dv-day-card__top {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dv-day-card__top::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 80px;
+  height: 80px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.dv-day-card:hover .dv-day-card__top {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+}
+
+/* Card 2 - Teal / Accent */
+.dv-day-card:nth-child(2) .dv-day-card__top {
+  background: linear-gradient(135deg, #0077a8 0%, #00a3e0 100%);
+}
+
+.dv-day-card:nth-child(2):hover .dv-day-card__top {
+  background: linear-gradient(135deg, #00b4d8 0%, #0077a8 100%);
+}
+
+.dv-day-card:nth-child(2) .dv-day-card__icon {
+  background: linear-gradient(135deg, rgba(0, 163, 224, 0.12) 0%, rgba(0, 119, 168, 0.08) 100%);
+  color: #0077a8;
+}
+
+/* Card 3 - Green / Emerald */
+.dv-day-card:nth-child(3) .dv-day-card__top {
+  background: linear-gradient(135deg, #166534 0%, #22a55b 100%);
+}
+
+.dv-day-card:nth-child(3):hover .dv-day-card__top {
+  background: linear-gradient(135deg, #34d399 0%, #166534 100%);
+}
+
+.dv-day-card:nth-child(3) .dv-day-card__icon {
+  background: linear-gradient(135deg, rgba(34, 165, 91, 0.12) 0%, rgba(22, 101, 52, 0.08) 100%);
+  color: #166534;
+}
+
+.dv-day-card:nth-child(2):hover {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 12px 28px rgba(0, 163, 224, 0.12);
+}
+
+.dv-day-card:nth-child(3):hover {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 12px 28px rgba(34, 165, 91, 0.12);
+}
+
+.dv-day-card__num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.dv-day-card__month {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Card body */
+.dv-day-card__body {
+  padding: 1.5rem;
+}
+
+.dv-day-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 163, 224, 0.1) 0%, rgba(45, 90, 135, 0.06) 100%);
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.dv-day-card__heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.5rem;
+}
+
+.dv-day-card__text {
+  font-size: 0.9rem;
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 1024px) {
+  .dv-banner__body {
+    padding: 2rem 2.5rem;
+  }
+
+  .dv-banner__title {
+    font-size: 1.55rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dv-banner {
+    padding: 2.5rem 0;
+  }
+
+  .dv-banner__card {
+    flex-direction: column;
+    border-radius: 16px;
+  }
+
+  .dv-banner__body {
+    padding: 2rem;
+  }
+
+  .dv-banner__title {
+    font-size: 1.4rem;
+  }
+
+  .dv-banner__desc {
+    font-size: 0.95rem;
+  }
+
+  .dv-banner__badge {
+    flex-direction: row;
+    gap: 0.75rem;
+    padding: 1.5rem 2rem;
+    min-width: unset;
+  }
+
+  .dv-banner__badge-date {
+    font-size: 2.25rem;
+  }
+
+  .dv-banner__badge-icon {
+    display: none;
+  }
+
+  .dv-banner__badge-city {
+    margin-top: 0;
+    margin-left: 0.5rem;
+  }
+
+  .dv-banner__pattern {
+    display: none;
+  }
+
+  .dv-days {
+    padding: 3rem 0;
+  }
+
+  .dv-days__title {
+    font-size: 1.35rem;
+  }
+
+  .dv-days__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .dv-day-card__top {
+    padding: 1rem 1.25rem;
+  }
+
+  .dv-day-card__body {
+    padding: 1.25rem;
+  }
+
+  .dv-days__pattern {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .dv-banner {
+    padding: 1.5rem 0;
+  }
+
+  .dv-banner__card {
+    border-radius: 14px;
+  }
+
+  .dv-banner__body {
+    padding: 1.5rem;
+  }
+
+  .dv-banner__title {
+    font-size: 1.25rem;
+  }
+
+  .dv-banner__badge {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .dv-banner__badge-date {
+    font-size: 2rem;
+  }
+
+  .dv-day-card__num {
+    font-size: 1.75rem;
+  }
+
+  .dv-day-card__icon {
+    display: none;
+  }
+}
+
+@media print {
+  .dv-banner__pattern,
+  .dv-days__pattern,
+  .dv-banner__water-bg,
+  .dv-day-card__top::after {
+    display: none;
+  }
+
+  .dv-banner__card {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+  }
+
+  .dv-banner__badge {
+    background: var(--color-gray-100);
+    color: var(--color-gray-900);
+  }
+
+  .dv-day-card {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+    break-inside: avoid;
+  }
+
+  .dv-day-card__top {
+    background: var(--color-gray-100);
+  }
+
+  .dv-day-card__num {
+    color: var(--color-gray-900);
+  }
+}

@@ -1,0 +1,657 @@
+/* ============================================
+   Press Accreditation Page – Media Badge Theme
+   Prefix: prs-
+   Unique: badge-style intro, checklist cards,
+           deadline banner, contact strip
+   ============================================ */
+
+/* ============================================
+   Intro
+   ============================================ */
+.prs-intro {
+  padding: 4rem 0 3rem;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.prs-intro__pattern {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 260px;
+  height: 260px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.025);
+}
+
+.prs-intro .container {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.prs-intro__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1.1rem;
+  border: 2px solid rgba(124, 58, 237, 0.2);
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7c3aed;
+  margin-bottom: 1.25rem;
+}
+
+.prs-intro__badge-icon {
+  display: flex;
+  color: #7c3aed;
+}
+
+.prs-intro__title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 1.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.prs-intro__text {
+  font-size: 1rem;
+  color: var(--color-gray-500);
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================
+   Required Documents – Checklist
+   ============================================ */
+.prs-docs {
+  padding: 4rem 0;
+  background: var(--color-gray-50);
+  position: relative;
+  overflow: hidden;
+}
+
+.prs-docs__pattern {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 260px;
+  height: 260px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  filter: brightness(0) opacity(0.025);
+}
+
+.prs-docs .container {
+  position: relative;
+  z-index: 2;
+}
+
+.prs-docs__header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.prs-docs__title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.prs-docs__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.prs-docs__list {
+  max-width: 740px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.prs-doc {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 1.35rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.prs-doc:hover {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 8px 24px rgba(30, 58, 95, 0.07);
+  border-color: transparent;
+}
+
+.prs-doc__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.prs-doc--1 .prs-doc__check { background: rgba(124, 58, 237, 0.08); color: #7c3aed; }
+.prs-doc--2 .prs-doc__check { background: rgba(0, 163, 224, 0.08); color: var(--color-accent, #00a3e0); }
+.prs-doc--3 .prs-doc__check { background: rgba(5, 150, 105, 0.08); color: #059669; }
+.prs-doc--4 .prs-doc__check { background: rgba(217, 119, 6, 0.08); color: #d97706; }
+.prs-doc--5 .prs-doc__check { background: rgba(225, 29, 72, 0.08); color: #e11d48; }
+
+.prs-doc__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.prs-doc__name {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.25rem;
+  line-height: 1.3;
+}
+
+.prs-doc__desc {
+  font-size: 0.84rem;
+  color: var(--color-gray-500);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   Deadline Banner
+   ============================================ */
+.prs-deadline {
+  padding: 0;
+}
+
+.prs-deadline__band {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, #1a3352 100%);
+  padding: 2.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.prs-deadline__band-pattern {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 180px;
+  height: 180px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+.prs-deadline__band .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prs-deadline__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.prs-deadline__date-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 0 0.35rem;
+}
+
+.prs-deadline__date-block {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 0.85rem 1.5rem;
+  text-align: center;
+}
+
+.prs-deadline__date-day {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+  margin: 0;
+}
+
+.prs-deadline__date-month {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0.2rem 0 0;
+}
+
+.prs-deadline__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.prs-deadline__info-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 0.4rem;
+  line-height: 1.3;
+}
+
+.prs-deadline__info-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   Admission Notice
+   ============================================ */
+.prs-notice {
+  padding: 3.5rem 0;
+  background: white;
+}
+
+.prs-notice .container {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prs-notice__card {
+  background: var(--color-gray-50);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 18px;
+  padding: 2rem 2.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.prs-notice__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(217, 119, 6, 0.08);
+  color: #d97706;
+  flex-shrink: 0;
+}
+
+.prs-notice__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.prs-notice__title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.35rem;
+}
+
+.prs-notice__text {
+  font-size: 0.86rem;
+  color: var(--color-gray-500);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ============================================
+   Contact Section
+   ============================================ */
+.prs-contact {
+  padding: 0 0 4rem;
+  background: white;
+}
+
+.prs-contact .container {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.prs-contact__card {
+  background: var(--color-gray-50);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 18px;
+  padding: 2rem 2.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.prs-contact__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--color-accent, #00a3e0);
+  flex-shrink: 0;
+}
+
+.prs-contact__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.prs-contact__title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.35rem;
+}
+
+.prs-contact__text {
+  font-size: 0.86rem;
+  color: var(--color-gray-500);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.prs-contact__text a {
+  color: var(--color-accent, #00a3e0);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.prs-contact__text a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   Closing
+   ============================================ */
+.prs-closing {
+  padding: 3.5rem 0 4rem;
+  background: var(--color-gray-50);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.prs-closing__pattern {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  filter: brightness(0) opacity(0.025);
+}
+
+.prs-closing .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prs-closing__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.prs-closing__text {
+  font-size: 0.95rem;
+  color: var(--color-gray-500);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 560px;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+  .prs-intro {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .prs-intro__title {
+    font-size: 1.5rem;
+  }
+
+  .prs-intro__text {
+    font-size: 0.93rem;
+  }
+
+  .prs-intro__pattern {
+    display: none;
+  }
+
+  .prs-docs {
+    padding: 3rem 0;
+  }
+
+  .prs-docs__title {
+    font-size: 1.35rem;
+  }
+
+  .prs-docs__pattern {
+    display: none;
+  }
+
+  .prs-doc {
+    padding: 1.15rem 1.25rem;
+  }
+
+  .prs-deadline__band .container {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .prs-deadline__band-pattern {
+    display: none;
+  }
+
+  .prs-notice__card,
+  .prs-contact__card {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 1.75rem;
+  }
+
+  .prs-notice {
+    padding: 3rem 0;
+  }
+
+  .prs-closing {
+    padding: 3rem 0;
+  }
+
+  .prs-closing__title {
+    font-size: 1.3rem;
+  }
+
+  .prs-closing__pattern {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .prs-intro {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .prs-intro__title {
+    font-size: 1.3rem;
+  }
+
+  .prs-intro__text {
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+
+  .prs-docs {
+    padding: 2.5rem 0;
+  }
+
+  .prs-docs__title {
+    font-size: 1.2rem;
+  }
+
+  .prs-doc {
+    padding: 1rem 1.15rem;
+    border-radius: 14px;
+    gap: 0.85rem;
+  }
+
+  .prs-doc__check {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .prs-doc__name {
+    font-size: 0.9rem;
+  }
+
+  .prs-doc__desc {
+    font-size: 0.8rem;
+  }
+
+  .prs-deadline__band {
+    padding: 2rem 0;
+  }
+
+  .prs-deadline__date-day {
+    font-size: 1.6rem;
+  }
+
+  .prs-deadline__date-block {
+    padding: 0.7rem 1.25rem;
+    border-radius: 12px;
+  }
+
+  .prs-deadline__info-title {
+    font-size: 1rem;
+  }
+
+  .prs-deadline__info-text {
+    font-size: 0.82rem;
+  }
+
+  .prs-notice {
+    padding: 2.5rem 0;
+  }
+
+  .prs-notice__card,
+  .prs-contact__card {
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+  }
+
+  .prs-notice__icon,
+  .prs-contact__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .prs-contact {
+    padding: 0 0 2.5rem;
+  }
+
+  .prs-closing {
+    padding: 2.5rem 0;
+  }
+
+  .prs-closing__title {
+    font-size: 1.15rem;
+  }
+
+  .prs-closing__text {
+    font-size: 0.88rem;
+  }
+}
+
+@media print {
+  .prs-intro__pattern,
+  .prs-docs__pattern,
+  .prs-closing__pattern,
+  .prs-deadline__band-pattern {
+    display: none;
+  }
+
+  .prs-doc,
+  .prs-notice__card,
+  .prs-contact__card {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+  }
+
+  .prs-deadline__band {
+    background: var(--color-gray-200) !important;
+  }
+
+  .prs-deadline__info-title,
+  .prs-deadline__date-day {
+    color: var(--color-gray-900);
+  }
+
+  .prs-deadline__info-text,
+  .prs-deadline__date-label,
+  .prs-deadline__date-month {
+    color: var(--color-gray-600);
+  }
+
+  .prs-deadline__date-block {
+    background: transparent;
+    border-color: var(--color-gray-400);
+  }
+
+  .prs-doc__check {
+    background: var(--color-gray-100) !important;
+    color: var(--color-gray-600) !important;
+  }
+}

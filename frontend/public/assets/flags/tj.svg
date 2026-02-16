@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <rect width="600" height="300" fill="#006600"/>
+  <rect width="600" height="200" y="50" fill="#fff"/>
+  <rect width="600" height="100" y="100" fill="#cc0000"/>
+  <g transform="translate(300,100)">
+    <circle r="20" fill="#f7d117"/>
+    <g id="star">
+      <path d="M0,-20 L5,-5 L20,0 L5,5 L0,20 L-5,5 L-20,0 L-5,-5 Z" fill="#fff"/>
+    </g>
+    <use href="#star" transform="rotate(72)"/>
+    <use href="#star" transform="rotate(144)"/>
+    <use href="#star" transform="rotate(216)"/>
+    <use href="#star" transform="rotate(288)"/>
+  </g>
+</svg>
