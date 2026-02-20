@@ -7,7 +7,7 @@ import { SpeakerCard } from '../UI'
 
 export default function HeroSection() {
   const { t, language } = useLanguage()
-  const { getHeroSettings } = useSettings()
+  const { getHeroSettings, loading: settingsLoading } = useSettings()
   const videoRef = useRef(null)
   const [speakers, setSpeakers] = useState([])
 
@@ -185,7 +185,7 @@ export default function HeroSection() {
               <cite>{quoteAuthor}</cite>
             </div>
 
-            {(heroSettings.showRegistrationBtn !== 'false' || heroSettings.showVideoBtn !== 'false') && (
+            {!settingsLoading && (heroSettings.showRegistrationBtn !== 'false' || heroSettings.showVideoBtn !== 'false') && (
               <div className="hero__actions">
                 {heroSettings.showRegistrationBtn !== 'false' && (
                   <LocalizedLink to="/registration" className="btn btn--primary btn--large">

@@ -528,7 +528,7 @@
 }
 
 .ps-tab--active .ps-tab__date {
-  color: var(--color-accent);
+  color: white;
   font-weight: 600;
 }
 

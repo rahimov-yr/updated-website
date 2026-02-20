@@ -1,17 +1,70 @@
+import { useState, useMemo } from 'react'
+import LocalizedLink from '../../components/LocalizedLink'
 import { PageHero } from '../../components/Sections'
 import PageLoader from '../../components/PageLoader'
 import { useLanguage } from '../../context/LanguageContext'
 import { useSettings } from '../../context/SettingsContext'
 import usePageBanner from '../../hooks/usePageBanner'
 import {
-  Hotel, CalendarCheck, CreditCard, Users, Info,
-  PlaneLanding, Bus
+  Star, MapPin, Phone, Globe, ArrowRight, DollarSign,
+  Waves, Sparkles, Wifi, UtensilsCrossed, Dumbbell, Coffee, Briefcase, Car
 } from 'lucide-react'
 import '../../styles/accommodation-infographic.css'
+
+export const hotelImages = [
+  '/assets/images/hotels/hyatt-regency.jpg',
+  '/assets/images/hotels/hilton.jpg',
+  '/assets/images/hotels/serena.jpg',
+  '/assets/images/hotels/rumi.jpg',
+  '/assets/images/hotels/lotte-palace.jpg',
+  '/assets/images/hotels/tajikistan.jpg',
+  '/assets/images/hotels/atlas.jpg',
+  '/assets/images/hotels/safar.jpg',
+  '/assets/images/hotels/asia-grand.jpg',
+  '/assets/images/hotels/meridian.jpg'
+]
+
+const G = '/assets/images/hotels/gallery'
+
+export const hotelGallery = [
+  // 0 - Hyatt Regency
+  [`${G}/lobby-1.jpg`, `${G}/pool-1.jpg`, `${G}/room-1.jpg`, `${G}/restaurant-1.jpg`],
+  // 1 - Hilton
+  [`${G}/lobby-2.jpg`, `${G}/pool-2.jpg`, `${G}/room-2.jpg`, `${G}/spa-1.jpg`],
+  // 2 - Serena
+  [`${G}/lobby-3.jpg`, `${G}/pool-1.jpg`, `${G}/room-3.jpg`, `${G}/restaurant-2.jpg`],
+  // 3 - Rumi
+  [`${G}/lobby-1.jpg`, `${G}/room-2.jpg`, `${G}/restaurant-1.jpg`, `${G}/lobby-2.jpg`],
+  // 4 - Lotte Palace
+  [`${G}/lobby-3.jpg`, `${G}/gym-1.jpg`, `${G}/room-1.jpg`, `${G}/restaurant-2.jpg`],
+  // 5 - Hotel Tajikistan
+  [`${G}/lobby-2.jpg`, `${G}/room-3.jpg`, `${G}/restaurant-1.jpg`, `${G}/lobby-1.jpg`],
+  // 6 - Atlas
+  [`${G}/pool-2.jpg`, `${G}/gym-1.jpg`, `${G}/room-2.jpg`, `${G}/lobby-3.jpg`],
+  // 7 - Safar
+  [`${G}/pool-1.jpg`, `${G}/spa-1.jpg`, `${G}/room-1.jpg`, `${G}/restaurant-2.jpg`],
+  // 8 - Asia Grand
+  [`${G}/lobby-1.jpg`, `${G}/room-3.jpg`, `${G}/restaurant-1.jpg`, `${G}/lobby-2.jpg`],
+  // 9 - Meridian
+  [`${G}/lobby-3.jpg`, `${G}/room-2.jpg`, `${G}/restaurant-2.jpg`, `${G}/lobby-1.jpg`]
+]
+
+export const amenityIcons = {
+  pool: Waves,
+  spa: Sparkles,
+  wifi: Wifi,
+  restaurant: UtensilsCrossed,
+  gym: Dumbbell,
+  breakfast: Coffee,
+  business: Briefcase,
+  parking: Car
+}
 
 export default function Accommodation() {
   const { language } = useLanguage()
   const { loading } = useSettings()
+  const [activeCategory, setActiveCategory] = useState('all')
+  const [activeStars, setActiveStars] = useState('all')
 
   const banner = usePageBanner('logistics-accommodation', {
     title: { ru: 'Размещение в гостинице', en: 'Hotel Accommodation', tj: 'Ҷойгиршавӣ дар меҳмонхона' },
@@ -19,6 +72,16 @@ export default function Accommodation() {
   }, 'logistics_accommodation')
 
   const t = translations[language] || translations.en
+
+  const filtered = useMemo(() => {
+    return t.hotels
+      .map((hotel, i) => ({ ...hotel, _idx: i }))
+      .filter(h => {
+        if (activeCategory !== 'all' && h.categoryKey !== activeCategory) return false
+        if (activeStars !== 'all' && h.stars !== Number(activeStars)) return false
+        return true
+      })
+  }, [t.hotels, activeCategory, activeStars])
 
   if (loading) return <PageLoader />
 
@@ -32,216 +95,245 @@ export default function Accommodation() {
         />
       )}
 
-      {/* Intro */}
-      <section className="acc-intro">
-        <div className="acc-intro__pattern"></div>
+      <section className="acc-hotels">
         <div className="container">
-          <p className="acc-intro__text">{t.introText}</p>
-        </div>
-      </section>
 
-      {/* Key Info Highlights */}
-      <section className="acc-highlights">
-        <div className="container">
-          <div className="acc-highlights__grid">
-            {t.highlights.map((h, i) => (
-              <div className={`acc-highlight acc-highlight--${highlightKeys[i]}`} key={i}>
-                <div className="acc-highlight__icon">{highlightIcons[i]}</div>
-                <h3 className="acc-highlight__title">{h.title}</h3>
-                <p className="acc-highlight__desc">{h.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Discount Banner */}
-      <section className="acc-discount">
-        <div className="acc-discount__band">
-          <div className="acc-discount__band-pattern"></div>
-          <div className="container">
-            <div className="acc-discount__value">
-              <p className="acc-discount__value-label">{t.discountLabel}</p>
-              <div className="acc-discount__value-block">
-                <p className="acc-discount__value-pct">20–30%</p>
-                <p className="acc-discount__value-sub">{t.discountSub}</p>
-              </div>
+          {/* Filters */}
+          <div className="acc-filters">
+            <div className="acc-filters__tabs">
+              {t.categories.map(cat => (
+                <button
+                  key={cat.key}
+                  className={`acc-filters__tab ${activeCategory === cat.key ? 'acc-filters__tab--active' : ''}`}
+                  onClick={() => setActiveCategory(cat.key)}
+                >
+                  {cat.label}
+                </button>
+              ))}
             </div>
-            <div className="acc-discount__info">
-              <h2 className="acc-discount__info-title">{t.discountTitle}</h2>
-              <p className="acc-discount__info-text">{t.discountText}</p>
+            <div className="acc-filters__stars">
+              {t.starFilters.map(sf => (
+                <button
+                  key={sf.key}
+                  className={`acc-filters__star-btn ${activeStars === sf.key ? 'acc-filters__star-btn--active' : ''}`}
+                  onClick={() => setActiveStars(sf.key)}
+                >
+                  {sf.key !== 'all' && <Star size={11} fill="currentColor" />}
+                  {sf.label}
+                </button>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Transport */}
-      <section className="acc-transport">
-        <div className="acc-transport__pattern"></div>
-        <div className="container">
-          <div className="acc-transport__header">
-            <h2 className="acc-transport__title">{t.transportTitle}</h2>
-            <p className="acc-transport__subtitle">{t.transportSubtitle}</p>
-          </div>
-          <div className="acc-transport__cards">
-            {t.transport.map((card, i) => (
-              <div className={`acc-transport__card acc-transport__card--${transportKeys[i]}`} key={i}>
-                <div className="acc-transport__card-icon">{transportIcons[i]}</div>
-                <h3 className="acc-transport__card-title">{card.title}</h3>
-                <p className="acc-transport__card-text">{card.text}</p>
-              </div>
+          {/* Cards Grid */}
+          <div className="acc-hotels__grid">
+            {filtered.map(hotel => (
+              <LocalizedLink
+                to={`/logistics/accommodation/${hotel._idx}`}
+                className="acc-hotel-card-link"
+                key={hotel._idx}
+              >
+                <div className="acc-hotel-card">
+                  <div className="acc-hotel-card__img-wrap">
+                    <img
+                      src={hotelImages[hotel._idx]}
+                      alt={hotel.name}
+                      className="acc-hotel-card__img"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <div className="acc-hotel-card__accent" />
+
+                  <div className="acc-hotel-card__body">
+                    <div className="acc-hotel-card__row">
+                      <h3 className="acc-hotel-card__name">{hotel.name}</h3>
+                      <span className="acc-hotel-card__rating">
+                        <Star size={12} fill="currentColor" />
+                        {hotel.stars}.0
+                      </span>
+                    </div>
+
+                    <div className="acc-hotel-card__location">
+                      <MapPin size={13} />
+                      <span>{hotel.address}</span>
+                    </div>
+
+                    {/* Price */}
+                    <div className="acc-hotel-card__price">
+                      <DollarSign size={14} />
+                      <span>{hotel.price}</span>
+                      <span className="acc-hotel-card__price-label">{t.perNight}</span>
+                    </div>
+
+                    <p className="acc-hotel-card__desc">{hotel.desc}</p>
+
+                    {/* Amenities */}
+                    <div className="acc-hotel-card__amenities">
+                      {hotel.amenities.map(a => {
+                        const Icon = amenityIcons[a.key]
+                        return (
+                          <span className="acc-hotel-card__amenity" key={a.key}>
+                            <Icon size={13} />
+                            {a.label}
+                          </span>
+                        )
+                      })}
+                    </div>
+
+                    {/* Footer */}
+                    <div className="acc-hotel-card__footer">
+                      <span className="acc-hotel-card__contact">
+                        <Phone size={13} />
+                        {hotel.phone}
+                      </span>
+                      {hotel.website && (
+                        <span className="acc-hotel-card__link">
+                          <Globe size={13} />
+                          {t.visitWebsite}
+                          <ArrowRight size={13} />
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </LocalizedLink>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Closing */}
-      <section className="acc-closing">
-        <div className="container">
-          <h2 className="acc-closing__title">{t.closingTitle}</h2>
-          <p className="acc-closing__text">{t.closingText}</p>
+          {filtered.length === 0 && (
+            <p className="acc-hotels__empty">{t.noResults}</p>
+          )}
         </div>
       </section>
     </>
   )
 }
 
-const highlightKeys = ['booking', 'cost', 'delegation', 'info']
-const highlightIcons = [
-  <CalendarCheck size={18} key="h0" />,
-  <CreditCard size={18} key="h1" />,
-  <Users size={18} key="h2" />,
-  <Info size={18} key="h3" />
+/* ── Amenities per hotel (language-independent keys) ── */
+export const hotelAmenities = [
+  ['pool', 'spa', 'gym', 'restaurant', 'wifi'],       // Hyatt
+  ['pool', 'spa', 'gym', 'restaurant', 'wifi'],       // Hilton
+  ['pool', 'spa', 'breakfast', 'restaurant', 'wifi'],  // Serena
+  ['restaurant', 'business', 'wifi', 'parking'],       // Rumi
+  ['gym', 'restaurant', 'business', 'wifi', 'parking'],// Lotte
+  ['restaurant', 'business', 'wifi', 'parking'],       // Tajikistan
+  ['pool', 'gym', 'business', 'restaurant', 'wifi'],   // Atlas
+  ['pool', 'spa', 'restaurant', 'wifi'],               // Safar
+  ['restaurant', 'wifi', 'parking'],                   // Asia Grand
+  ['restaurant', 'wifi', 'parking']                    // Meridian
 ]
 
-const transportKeys = ['airport', 'shuttle']
-const transportIcons = [
-  <PlaneLanding size={18} key="t0" />,
-  <Bus size={18} key="t1" />
-]
+export const amenityLabels = {
+  en: { pool: 'Pool', spa: 'Spa', wifi: 'WiFi', restaurant: 'Restaurant', gym: 'Gym', breakfast: 'Breakfast', business: 'Business Center', parking: 'Parking' },
+  ru: { pool: 'Бассейн', spa: 'Спа', wifi: 'WiFi', restaurant: 'Ресторан', gym: 'Зал', breakfast: 'Завтрак', business: 'Бизнес-центр', parking: 'Парковка' },
+  tj: { pool: 'Ҳавз', spa: 'Спа', wifi: 'WiFi', restaurant: 'Ресторан', gym: 'Зал', breakfast: 'Субҳона', business: 'Бизнес-марказ', parking: 'Паркинг' }
+}
+
+export function buildHotels(base, lang) {
+  const labels = amenityLabels[lang] || amenityLabels.en
+  return base.map((h, i) => ({
+    ...h,
+    amenities: hotelAmenities[i].map(key => ({ key, label: labels[key] }))
+  }))
+}
+
+/* ── Hotel data ── */
+export const hotelsBase = {
+  en: [
+    { name: 'Hyatt Regency Dushanbe', stars: 5, categoryKey: 'luxury', price: '$180 – $350', desc: 'Premium lakeside hotel in the heart of Dushanbe with world-class amenities, multiple restaurants, and a stunning rooftop pool.', address: '26/1 Ismoili Somoni Ave', phone: '+992 48 702 1234', website: 'https://www.hyatt.com/hyatt-regency/en-US/dushr-hyatt-regency-dushanbe' },
+    { name: 'Hilton Dushanbe', stars: 5, categoryKey: 'luxury', price: '$150 – $300', desc: 'International luxury hotel featuring elegant rooms, a full-service spa and wellness centre, indoor heated pool.', address: '50 Rudaki Ave', phone: '+992 44 620 0000', website: 'https://www.hilton.com/en/hotels/dybhihi-hilton-dushanbe/' },
+    { name: 'Dushanbe Serena Hotel', stars: 5, categoryKey: 'luxury', price: '$140 – $280', desc: 'Renowned Serena Hotels chain with beautifully appointed rooms, celebrated rooftop pool and bar, spa facilities.', address: '14 Rudaki Ave', phone: '+992 48 700 1515', website: 'https://www.serenahotels.com/dushanbe' },
+    { name: 'The Rumi Hotel & Residences', stars: 5, categoryKey: 'luxury', price: '$120 – $250', desc: 'Modern boutique hotel blending contemporary design with Central Asian hospitality and conference facilities.', address: '1 Bokhtar St', phone: '+992 44 640 5050', website: null },
+    { name: 'Lotte Palace Dushanbe', stars: 5, categoryKey: 'luxury', price: '$130 – $270', desc: 'Upscale hotel with spacious rooms, panoramic city views, fitness facilities, and international cuisine.', address: '5/1 Aini St', phone: '+992 37 236 9800', website: null },
+    { name: 'Hotel Tajikistan', stars: 4, categoryKey: 'business', price: '$60 – $120', desc: 'Iconic landmark hotel in central Dushanbe with conference halls and easy access to government offices.', address: '22 Shotemur St', phone: '+992 37 221 7580', website: null },
+    { name: 'Atlas Hotel Dushanbe', stars: 4, categoryKey: 'business', price: '$70 – $140', desc: 'Modern business hotel with state-of-the-art business centre, indoor pool, and meeting rooms.', address: '2 Bukhoro St', phone: '+992 48 701 0101', website: null },
+    { name: 'Safar Hotel', stars: 4, categoryKey: 'business', price: '$65 – $130', desc: 'Well-appointed hotel featuring a swimming pool, spa services, and convenient business district location.', address: '36 Rudaki Ave', phone: '+992 37 227 3300', website: null },
+    { name: 'Asia Grand Hotel', stars: 4, categoryKey: 'comfort', price: '$55 – $110', desc: 'Centrally located near the Monument of Ismail Samani with well-furnished rooms and restaurant.', address: '83 Rudaki Ave', phone: '+992 37 224 5000', website: null },
+    { name: 'Meridian Hotel Dushanbe', stars: 4, categoryKey: 'comfort', price: '$45 – $90', desc: 'Comfortable mid-range hotel with modern amenities and great location for cultural exploration.', address: '10 Mirzo Tursunzoda St', phone: '+992 37 235 0707', website: null }
+  ],
+  ru: [
+    { name: 'Hyatt Regency Душанбе', stars: 5, categoryKey: 'luxury', price: '$180 – $350', desc: 'Премиальный отель на берегу озера в центре Душанбе с ресторанами и потрясающим бассейном на крыше.', address: 'пр. Исмоили Сомони 26/1', phone: '+992 48 702 1234', website: 'https://www.hyatt.com/hyatt-regency/en-US/dushr-hyatt-regency-dushanbe' },
+    { name: 'Hilton Душанбе', stars: 5, categoryKey: 'luxury', price: '$150 – $300', desc: 'Международный люксовый отель с элегантными номерами, спа-центром и крытым подогреваемым бассейном.', address: 'пр. Рудаки 50', phone: '+992 44 620 0000', website: 'https://www.hilton.com/en/hotels/dybhihi-hilton-dushanbe/' },
+    { name: 'Душанбе Серена Отель', stars: 5, categoryKey: 'luxury', price: '$140 – $280', desc: 'Знаменитая сеть Serena Hotels с прекрасными номерами, бассейном и баром на крыше, спа-услуги.', address: 'пр. Рудаки 14', phone: '+992 48 700 1515', website: 'https://www.serenahotels.com/dushanbe' },
+    { name: 'The Rumi Hotel & Residences', stars: 5, categoryKey: 'luxury', price: '$120 – $250', desc: 'Современный бутик-отель, сочетающий дизайн с центральноазиатским гостеприимством и конференц-залами.', address: 'ул. Бохтар 1', phone: '+992 44 640 5050', website: null },
+    { name: 'Lotte Palace Душанбе', stars: 5, categoryKey: 'luxury', price: '$130 – $270', desc: 'Элитный отель с просторными номерами, панорамным видом, фитнес-залом и ресторанами.', address: 'ул. Айни 5/1', phone: '+992 37 236 9800', website: null },
+    { name: 'Гостиница Таджикистан', stars: 4, categoryKey: 'business', price: '$60 – $120', desc: 'Легендарный отель в центре Душанбе с конференц-залами и удобным доступом к госучреждениям.', address: 'ул. Шотемур 22', phone: '+992 37 221 7580', website: null },
+    { name: 'Atlas Hotel Душанбе', stars: 4, categoryKey: 'business', price: '$70 – $140', desc: 'Современный бизнес-отель с бизнес-центром, крытым бассейном и конференц-залами.', address: 'ул. Бухоро 2', phone: '+992 48 701 0101', website: null },
+    { name: 'Отель Safar', stars: 4, categoryKey: 'business', price: '$65 – $130', desc: 'Благоустроенный отель с бассейном, спа-услугами и удобным расположением в деловом центре.', address: 'пр. Рудаки 36', phone: '+992 37 227 3300', website: null },
+    { name: 'Asia Grand Hotel', stars: 4, categoryKey: 'comfort', price: '$55 – $110', desc: 'Отель в центре города рядом с памятником Исмоилу Сомони с благоустроенными номерами.', address: 'пр. Рудаки 83', phone: '+992 37 224 5000', website: null },
+    { name: 'Meridian Hotel Душанбе', stars: 4, categoryKey: 'comfort', price: '$45 – $90', desc: 'Комфортабельный отель с современными удобствами и отличным расположением для знакомства с городом.', address: 'ул. Мирзо Турсунзода 10', phone: '+992 37 235 0707', website: null }
+  ],
+  tj: [
+    { name: 'Hyatt Regency Душанбе', stars: 5, categoryKey: 'luxury', price: '$180 – $350', desc: 'Меҳмонхонаи олӣ дар соҳили кӯл дар маркази Душанбе бо чанд ресторан ва ҳавзи шиноварӣ дар бом.', address: 'кӯч. Исмоили Сомонӣ 26/1', phone: '+992 48 702 1234', website: 'https://www.hyatt.com/hyatt-regency/en-US/dushr-hyatt-regency-dushanbe' },
+    { name: 'Hilton Душанбе', stars: 5, categoryKey: 'luxury', price: '$150 – $300', desc: 'Меҳмонхонаи байналмилалии люкс бо ҳуҷраҳои зебо, маркази спа ва ҳавзи шиноварии гармкардашуда.', address: 'кӯч. Рӯдакӣ 50', phone: '+992 44 620 0000', website: 'https://www.hilton.com/en/hotels/dybhihi-hilton-dushanbe/' },
+    { name: 'Душанбе Серена Отель', stars: 5, categoryKey: 'luxury', price: '$140 – $280', desc: 'Занҷираи машҳури Serena Hotels бо ҳуҷраҳои зебо, ҳавзи шиноварӣ ва бар дар бом, хадамоти спа.', address: 'кӯч. Рӯдакӣ 14', phone: '+992 48 700 1515', website: 'https://www.serenahotels.com/dushanbe' },
+    { name: 'The Rumi Hotel & Residences', stars: 5, categoryKey: 'luxury', price: '$120 – $250', desc: 'Меҳмонхонаи муосир бо тарҳи замонавӣ, меҳмоннавозии осиёимиёнагӣ ва толорҳои конференсия.', address: 'кӯч. Бохтар 1', phone: '+992 44 640 5050', website: null },
+    { name: 'Lotte Palace Душанбе', stars: 5, categoryKey: 'luxury', price: '$130 – $270', desc: 'Меҳмонхонаи олӣ бо ҳуҷраҳои васеъ, манзараи панорамӣ, толори варзишӣ ва ресторанҳо.', address: 'кӯч. Айнӣ 5/1', phone: '+992 37 236 9800', website: null },
+    { name: 'Меҳмонхонаи Тоҷикистон', stars: 4, categoryKey: 'business', price: '$60 – $120', desc: 'Меҳмонхонаи таърихӣ дар маркази Душанбе бо толорҳои конференсия ва дастрасии осон.', address: 'кӯч. Шотемур 22', phone: '+992 37 221 7580', website: null },
+    { name: 'Atlas Hotel Душанбе', stars: 4, categoryKey: 'business', price: '$70 – $140', desc: 'Меҳмонхонаи муосири тиҷоратӣ бо бизнес-марказ, ҳавзи шиноварии дохилӣ ва толорҳои мулоқот.', address: 'кӯч. Бухоро 2', phone: '+992 48 701 0101', website: null },
+    { name: 'Отели Safar', stars: 4, categoryKey: 'business', price: '$65 – $130', desc: 'Меҳмонхонаи муҷаҳҳаз бо ҳавзи шиноварӣ, хадамоти спа ва ҷойгиршавии қулай.', address: 'кӯч. Рӯдакӣ 36', phone: '+992 37 227 3300', website: null },
+    { name: 'Asia Grand Hotel', stars: 4, categoryKey: 'comfort', price: '$55 – $110', desc: 'Меҳмонхона дар наздикии Ёдгории Исмоили Сомонӣ бо ҳуҷраҳои муҷаҳҳаз ва ресторан.', address: 'кӯч. Рӯдакӣ 83', phone: '+992 37 224 5000', website: null },
+    { name: 'Meridian Hotel Душанбе', stars: 4, categoryKey: 'comfort', price: '$45 – $90', desc: 'Меҳмонхонаи дараҷаи миёна бо шароитҳои муосир ва ҷойгиршавии аъло.', address: 'кӯч. Мирзо Турсунзода 10', phone: '+992 37 235 0707', website: null }
+  ]
+}
+
+export const hotels = {
+  en: buildHotels(hotelsBase.en, 'en'),
+  ru: buildHotels(hotelsBase.ru, 'ru'),
+  tj: buildHotels(hotelsBase.tj, 'tj')
+}
 
 const translations = {
   en: {
-    badgeLabel: 'Hotel Accommodation',
-    introTitle: 'Accommodation',
-    introText: 'Hotel booking and accommodation arrangements for participants of the High-Level International Conference on the International Decade for Action "Water for Sustainable Development", 2018–2028.',
-    highlights: [
-      {
-        title: 'Booking Responsibility',
-        desc: 'Hotel booking for participants is the responsibility of the relevant departments of the host country and the organizing committee.'
-      },
-      {
-        title: 'Cost Coverage',
-        desc: 'Accommodation costs for participants of official delegations are covered at their own expense or by the sending party.'
-      },
-      {
-        title: 'Delegation Accommodation',
-        desc: 'Heads of delegations and high-level officials will be accommodated in hotels pre-selected by the organizing committee.'
-      },
-      {
-        title: 'Hotel Availability',
-        desc: 'Dushanbe offers a range of international-standard hotels within close proximity to the conference venue.'
-      }
+    visitWebsite: 'Website',
+    perNight: '/ night',
+    noResults: 'No hotels match your filters. Try adjusting your selection.',
+    categories: [
+      { key: 'all', label: 'All' },
+      { key: 'luxury', label: 'Luxury' },
+      { key: 'business', label: 'Business' },
+      { key: 'comfort', label: 'Comfort' }
     ],
-    discountLabel: 'Discount',
-    discountSub: 'Special Rate',
-    discountTitle: 'Exclusive Hotel Discounts',
-    discountText: 'Special discounted rates of 20–30% have been negotiated with partner hotels for all registered conference participants during the event period.',
-    transportTitle: 'Transport Services',
-    transportSubtitle: 'Complimentary transport is provided for conference participants.',
-    transport: [
-      {
-        title: 'Airport Pickup',
-        text: 'Shuttle buses will be available at Dushanbe International Airport to transport participants to their designated hotels upon arrival.'
-      },
-      {
-        title: 'Hotel–Venue Shuttle',
-        text: 'Regular shuttle bus services will operate between partner hotels and the conference venue throughout the event.'
-      }
+    starFilters: [
+      { key: 'all', label: 'Any' },
+      { key: '5', label: '5 Star' },
+      { key: '4', label: '4 Star' }
     ],
-    closingTitle: 'Comfortable Stay',
-    closingText: 'The organizing committee is committed to ensuring a comfortable and convenient stay for all conference participants in Dushanbe.'
+    hotels: hotels.en
   },
   ru: {
-    badgeLabel: 'Размещение в гостинице',
-    introTitle: 'Размещение',
-    introText: 'Бронирование гостиниц и организация размещения участников Международной конференции высокого уровня, посвящённой Международному десятилетию действий «Вода для устойчивого развития», 2018–2028.',
-    highlights: [
-      {
-        title: 'Бронирование',
-        desc: 'Бронирование гостиниц для участников осуществляется соответствующими подразделениями принимающей страны и оргкомитетом.'
-      },
-      {
-        title: 'Оплата проживания',
-        desc: 'Расходы на проживание участников официальных делегаций покрываются за их собственный счёт или за счёт направляющей стороны.'
-      },
-      {
-        title: 'Размещение делегаций',
-        desc: 'Главы делегаций и высокопоставленные лица будут размещены в гостиницах, заранее выбранных оргкомитетом.'
-      },
-      {
-        title: 'Гостиницы',
-        desc: 'Душанбе предлагает широкий выбор гостиниц международного уровня в непосредственной близости от места проведения конференции.'
-      }
+    visitWebsite: 'Сайт',
+    perNight: '/ ночь',
+    noResults: 'Нет гостиниц, соответствующих фильтрам. Попробуйте изменить выбор.',
+    categories: [
+      { key: 'all', label: 'Все' },
+      { key: 'luxury', label: 'Люкс' },
+      { key: 'business', label: 'Бизнес' },
+      { key: 'comfort', label: 'Комфорт' }
     ],
-    discountLabel: 'Скидка',
-    discountSub: 'Специальный тариф',
-    discountTitle: 'Эксклюзивные скидки',
-    discountText: 'С партнёрскими гостиницами согласованы специальные скидки в размере 20–30% для всех зарегистрированных участников конференции на период мероприятия.',
-    transportTitle: 'Транспортные услуги',
-    transportSubtitle: 'Бесплатный транспорт предоставляется для участников конференции.',
-    transport: [
-      {
-        title: 'Встреча в аэропорту',
-        text: 'Автобусы-шаттлы будут доступны в Международном аэропорту Душанбе для доставки участников в назначенные гостиницы по прибытии.'
-      },
-      {
-        title: 'Шаттл гостиница–площадка',
-        text: 'Регулярное автобусное сообщение будет работать между партнёрскими гостиницами и местом проведения конференции в течение всего мероприятия.'
-      }
+    starFilters: [
+      { key: 'all', label: 'Любые' },
+      { key: '5', label: '5 звёзд' },
+      { key: '4', label: '4 звезды' }
     ],
-    closingTitle: 'Комфортное пребывание',
-    closingText: 'Оргкомитет стремится обеспечить комфортное и удобное пребывание всех участников конференции в Душанбе.'
+    hotels: hotels.ru
   },
   tj: {
-    badgeLabel: 'Ҷойгиршавӣ дар меҳмонхона',
-    introTitle: 'Ҷойгиршавӣ',
-    introText: 'Фармоиши меҳмонхонаҳо ва ташкили ҷойгиршавии иштирокчиёни Конференсияи байналмилалии сатҳи баланд оид ба Даҳсолаи байналмилалии амал «Об барои рушди устувор», 2018–2028.',
-    highlights: [
-      {
-        title: 'Фармоиши меҳмонхона',
-        desc: 'Фармоиши меҳмонхонаҳо барои иштирокчиён аз ҷониби шӯъбаҳои дахлдори кишвари мизбон ва кумитаи ташкилӣ анҷом дода мешавад.'
-      },
-      {
-        title: 'Пардохти ҷойгиршавӣ',
-        desc: 'Хароҷоти ҷойгиршавии иштирокчиёни ҳайатҳои расмӣ аз ҳисоби худашон ё аз ҷониби тарафи фиристанда пардохт мешавад.'
-      },
-      {
-        title: 'Ҷойгиршавии ҳайатҳо',
-        desc: 'Сарварони ҳайатҳо ва шахсони баландмартаба дар меҳмонхонаҳои пешакӣ интихобшудаи кумитаи ташкилӣ ҷойгир карда мешаванд.'
-      },
-      {
-        title: 'Меҳмонхонаҳо',
-        desc: 'Душанбе меҳмонхонаҳои сатҳи байналмилалиро дар наздикии ҷойи баргузории конференсия пешниҳод мекунад.'
-      }
+    visitWebsite: 'Вебсайт',
+    perNight: '/ шаб',
+    noResults: 'Ягон меҳмонхона ба филтрҳо мувофиқ нест. Интихоби худро тағйир диҳед.',
+    categories: [
+      { key: 'all', label: 'Ҳама' },
+      { key: 'luxury', label: 'Люкс' },
+      { key: 'business', label: 'Бизнес' },
+      { key: 'comfort', label: 'Роҳатӣ' }
     ],
-    discountLabel: 'Тахфиф',
-    discountSub: 'Тарифи махсус',
-    discountTitle: 'Тахфифҳои махсус',
-    discountText: 'Бо меҳмонхонаҳои шарикӣ тахфифҳои махсуси 20–30% барои ҳамаи иштирокчиёни бақайдгирифташудаи конференсия дар давраи чорабинӣ мувофиқа шудааст.',
-    transportTitle: 'Хадамоти нақлиёт',
-    transportSubtitle: 'Нақлиёти ройгон барои иштирокчиёни конференсия пешниҳод мешавад.',
-    transport: [
-      {
-        title: 'Пешвозӣ аз фурудгоҳ',
-        text: 'Автобусҳои шаттл дар Фурудгоҳи байналмилалии Душанбе барои интиқоли иштирокчиён ба меҳмонхонаҳои таъиншуда ҳангоми воридшавӣ дастрас мебошанд.'
-      },
-      {
-        title: 'Шаттл меҳмонхона–толор',
-        text: 'Хадамоти мунтазами автобусҳои шаттл байни меҳмонхонаҳои шарикӣ ва ҷойи баргузории конференсия дар тамоми давраи чорабинӣ кор мекунад.'
-      }
+    starFilters: [
+      { key: 'all', label: 'Ҳама' },
+      { key: '5', label: '5 ситора' },
+      { key: '4', label: '4 ситора' }
     ],
-    closingTitle: 'Истиқомати роҳат',
-    closingText: 'Кумитаи ташкилӣ ба таъмини истиқомати роҳат ва қулай барои ҳамаи иштирокчиёни конференсия дар Душанбе кӯшиш мекунад.'
+    hotels: hotels.tj
   }
 }

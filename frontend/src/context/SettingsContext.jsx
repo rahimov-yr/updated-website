@@ -150,9 +150,9 @@ export function SettingsProvider({ children }) {
       titleEn: getSetting('hero_title_en', ''),
       titleTj: getSetting('hero_title_tj', ''),
       // Dates
-      datesRu: getSetting('hero_dates_ru', ''),
-      datesEn: getSetting('hero_dates_en', ''),
-      datesTj: getSetting('hero_dates_tj', ''),
+      datesRu: getSetting('hero_dates_ru', '25-28 мая 2026'),
+      datesEn: getSetting('hero_dates_en', 'May 25-28, 2026'),
+      datesTj: getSetting('hero_dates_tj', '25-28 майи 2026'),
       // Location
       locationRu: getSetting('hero_location_ru', ''),
       locationEn: getSetting('hero_location_en', ''),

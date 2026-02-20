@@ -46,6 +46,7 @@ import Visa from './pages/logistics/Visa'
 import Press from './pages/logistics/Press'
 import Flights from './pages/logistics/Flights'
 import Accommodation from './pages/logistics/Accommodation'
+import HotelDetail from './pages/logistics/HotelDetail'
 import Weather from './pages/logistics/Weather'
 
 // Admin imports
@@ -191,6 +192,7 @@ const publicRoutes = (
     <Route path="logistics/press" element={<Press />} />
     <Route path="logistics/flights" element={<Flights />} />
     <Route path="logistics/accommodation" element={<Accommodation />} />
+    <Route path="logistics/accommodation/:hotelId" element={<HotelDetail />} />
     <Route path="logistics/weather" element={<Weather />} />
     <Route path="contacts" element={<Contacts />} />
     <Route path="registration" element={<Registration />} />
