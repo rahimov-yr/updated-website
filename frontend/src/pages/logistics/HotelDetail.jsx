@@ -4,7 +4,7 @@ import LocalizedLink from '../../components/LocalizedLink'
 import { useLanguage } from '../../context/LanguageContext'
 import { hotels, hotelImages, hotelGallery, amenityIcons } from './Accommodation'
 import {
-  Star, MapPin, Phone, Globe, ArrowLeft, ArrowRight, DollarSign,
+  Star, MapPin, Phone, Globe, ArrowLeft, ArrowRight,
   ChevronLeft, ChevronRight, X, Image as ImageIcon
 } from 'lucide-react'
 import '../../styles/hotel-detail.css'
@@ -125,9 +125,6 @@ export default function HotelDetail() {
           <div className="htl-detail__main">
             {/* Price Banner */}
             <div className="htl-detail__price-card">
-              <div className="htl-detail__price-icon">
-                <DollarSign size={22} />
-              </div>
               <div className="htl-detail__price-info">
                 <span className="htl-detail__price-value">{hotel.price}</span>
                 <span className="htl-detail__price-label">{t.perNight}</span>
