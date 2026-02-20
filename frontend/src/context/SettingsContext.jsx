@@ -173,7 +173,7 @@ export function SettingsProvider({ children }) {
       videoBtnTj: getSetting('hero_video_btn_tj', ''),
       // Button visibility
       showRegistrationBtn: getSetting('hero_show_registration_btn', 'true'),
-      showVideoBtn: getSetting('hero_show_video_btn', 'true'),
+      showVideoBtn: getSetting('hero_show_video_btn', 'false'),
     }
   }, [getSetting])
 
