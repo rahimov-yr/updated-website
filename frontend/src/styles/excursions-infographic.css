@@ -1,244 +1,29 @@
 /* ============================================
-   Excursions Page - Journey Through Tajikistan
+   Excursions Page - Destination Cards
    Prefix: exc-
-   Unique: vertical timeline + overlapping stats
    ============================================ */
 
 /* ============================================
-   Hero Quote - Big tagline with accent border
+   Destinations Section - Card grid
    ============================================ */
-.exc-hero-quote {
-  padding: 4rem 0;
+.exc-destinations {
+  padding: 3rem 0 3.5rem;
   position: relative;
   overflow: hidden;
-  background: white;
+  background: var(--color-gray-50, #f8fafc);
 }
 
-.exc-hero-quote__pattern {
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  width: 300px;
-  height: 300px;
-  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
-  background-size: contain;
-  pointer-events: none;
-  z-index: 0;
-  filter: brightness(0) opacity(0.03);
-}
-
-.exc-hero-quote .container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.exc-hero-quote__block {
-  max-width: 800px;
-  text-align: center;
-  border-left: 4px solid var(--color-accent, #00a3e0);
-  border-right: 4px solid var(--color-accent, #00a3e0);
-  padding: 0 2.5rem;
-}
-
-.exc-hero-quote__tagline {
-  font-size: 1.65rem;
-  font-weight: 800;
-  color: var(--color-primary-dark);
-  margin: 0 0 1rem;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
-}
-
-.exc-hero-quote__text {
-  font-size: 1.02rem;
-  color: var(--color-gray-600);
-  line-height: 1.85;
-  margin: 0;
-}
-
-/* ============================================
-   Journey Timeline - Vertical path
-   ============================================ */
-.exc-journey {
-  padding: 4rem 0;
-  position: relative;
-  overflow: hidden;
-  background: var(--color-gray-50);
-}
-
-.exc-journey__pattern {
-  position: absolute;
-  bottom: -40px;
-  left: -40px;
-  width: 280px;
-  height: 280px;
-  background: url('/assets/images/pattern_transparent_15.png') no-repeat center;
-  background-size: contain;
-  pointer-events: none;
-  z-index: 0;
-  filter: brightness(0) opacity(0.03);
-}
-
-.exc-journey .container {
-  position: relative;
-  z-index: 2;
-}
-
-.exc-journey__header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.exc-journey__title {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--color-primary-dark);
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.02em;
-}
-
-.exc-journey__subtitle {
-  font-size: 0.95rem;
-  color: var(--color-gray-500);
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* Timeline track */
-.exc-timeline {
-  position: relative;
-  max-width: 760px;
+.exc-destinations .container {
+  max-width: 1140px;
   margin: 0 auto;
-  padding-left: 48px;
 }
 
-/* Vertical line */
-.exc-timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 19px;
-  width: 2px;
-  background: linear-gradient(
-    180deg,
-    var(--color-accent, #00a3e0) 0%,
-    rgba(0, 163, 224, 0.15) 100%
-  );
-  border-radius: 2px;
-}
-
-.exc-timeline-item {
-  position: relative;
-  padding-bottom: 2.25rem;
-}
-
-.exc-timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-/* Timeline dot */
-.exc-timeline-item__dot {
-  position: absolute;
-  left: -48px;
-  top: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  z-index: 2;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-
-.exc-timeline-item--history .exc-timeline-item__dot {
-  background: linear-gradient(135deg, var(--color-primary-dark), #244a73);
-}
-
-.exc-timeline-item--landmarks .exc-timeline-item__dot {
-  background: linear-gradient(135deg, #0077a8, #009cc7);
-}
-
-.exc-timeline-item--crafts .exc-timeline-item__dot {
-  background: linear-gradient(135deg, #7c3aed, #9b5dfa);
-}
-
-.exc-timeline-item--cuisine .exc-timeline-item__dot {
-  background: linear-gradient(135deg, #059669, #10b981);
-}
-
-/* Timeline card */
-.exc-timeline-item__card {
-  background: white;
-  border-radius: 16px;
-  padding: 1.75rem 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
-}
-
-.exc-timeline-item__card:hover {
-  transform: translateX(4px);
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.04),
-    0 12px 28px rgba(30, 58, 95, 0.1);
-}
-
-.exc-timeline-item__name {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-primary-dark);
-  margin: 0 0 0.5rem;
-  line-height: 1.3;
-}
-
-.exc-timeline-item__text {
-  font-size: 0.9rem;
-  color: var(--color-gray-500);
-  line-height: 1.8;
-  margin: 0;
-}
-
-/* ============================================
-   Nature Section - Overlapping stat blocks
-   ============================================ */
-.exc-nature {
-  padding: 4rem 0 5rem;
-  position: relative;
-  overflow: hidden;
-  background: white;
-}
-
-.exc-nature__pattern {
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  width: 260px;
-  height: 260px;
-  background: url('/assets/images/pattern_header_left.png') no-repeat;
-  background-size: contain;
-  pointer-events: none;
-  z-index: 0;
-  filter: brightness(0) opacity(0.04);
-  transform: scaleX(-1);
-}
-
-.exc-nature .container {
-  position: relative;
-  z-index: 2;
-}
-
-.exc-nature__header {
+.exc-destinations__header {
   text-align: center;
-  margin-bottom: 2.75rem;
+  margin-bottom: 2.5rem;
 }
 
-.exc-nature__title {
+.exc-destinations__title {
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--color-primary-dark);
@@ -246,7 +31,7 @@
   letter-spacing: -0.02em;
 }
 
-.exc-nature__subtitle {
+.exc-destinations__subtitle {
   font-size: 0.95rem;
   color: var(--color-gray-500);
   margin: 0;
@@ -256,79 +41,133 @@
   margin-right: auto;
 }
 
-/* Staggered overlapping stat blocks */
-.exc-stats-mosaic {
+/* Grid - 3 columns */
+.exc-destinations__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
+  gap: 1.5rem;
 }
 
-.exc-stat-block {
-  padding: 2.25rem 1.5rem;
-  text-align: center;
+/* Card link wrapper */
+.exc-dest-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
+
+/* Card */
+.exc-dest-card {
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 16px rgba(30, 58, 95, 0.06);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.exc-dest-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    0 20px 40px rgba(30, 58, 95, 0.12);
+}
+
+/* Card image */
+.exc-dest-card__img-wrap {
   position: relative;
-  transition: all 0.3s ease;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
 }
 
-.exc-stat-block::after {
-  content: '';
-  position: absolute;
-  top: 20%;
-  bottom: 20%;
-  right: 0;
-  width: 1px;
-  background: rgba(0, 0, 0, 0.08);
+.exc-dest-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.exc-stat-block:last-child::after {
-  display: none;
+.exc-dest-card:hover .exc-dest-card__img-wrap img {
+  transform: scale(1.05);
 }
 
-.exc-stat-block:hover {
-  transform: translateY(-4px);
+/* Accent bar */
+.exc-dest-card__accent {
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent, #00a3e0), #059669);
 }
 
-.exc-stat-block__value {
-  font-size: 2.8rem;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin: 0 0 0.35rem;
+/* Card body */
+.exc-dest-card__body {
+  padding: 1.35rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.exc-stat-block--mountains .exc-stat-block__value {
+.exc-dest-card__name {
+  font-size: 1.15rem;
+  font-weight: 750;
   color: var(--color-primary-dark);
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
-.exc-stat-block--glaciers .exc-stat-block__value {
-  color: var(--color-accent, #00a3e0);
+.exc-dest-card__desc {
+  font-size: 0.88rem;
+  color: var(--color-gray-500);
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  flex: 1;
 }
 
-.exc-stat-block--ranges .exc-stat-block__value {
-  color: #059669;
+/* Meta tags */
+.exc-dest-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.exc-stat-block__label {
-  font-size: 0.78rem;
+.exc-dest-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  background: var(--color-gray-50, #f8fafc);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 0.75rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-gray-400);
-  margin: 0;
-  line-height: 1.4;
+  color: var(--color-gray-500);
+  white-space: nowrap;
 }
 
-.exc-nature__desc {
-  font-size: 0.95rem;
-  color: var(--color-gray-600);
-  line-height: 1.85;
-  margin: 0;
-  text-align: center;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
+.exc-dest-card__tag svg {
+  color: var(--color-accent, #00a3e0);
+  flex-shrink: 0;
+}
+
+/* View Details link */
+.exc-dest-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-accent, #00a3e0);
+  transition: gap 0.25s ease;
+}
+
+.exc-dest-card:hover .exc-dest-card__link {
+  gap: 0.6rem;
 }
 
 /* ============================================
@@ -428,13 +267,13 @@
 }
 
 /* ============================================
-   Closing Banner
+   Closing Section - Tajikistan Highlights
    ============================================ */
 .exc-closing {
-  padding: 4rem 0;
+  padding: 4.5rem 0;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+  background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%);
 }
 
 .exc-closing__pattern {
@@ -447,117 +286,121 @@
   background-size: contain;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.05;
+  filter: brightness(0) opacity(0.04);
 }
 
 .exc-closing .container {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+.exc-closing__header {
   text-align: center;
+  margin-bottom: 2.5rem;
 }
 
 .exc-closing__title {
   font-size: 1.6rem;
   font-weight: 800;
-  color: var(--color-primary-dark, #1e3a5f);
-  margin: 0 0 1rem;
+  color: #1e3a5f;
+  margin: 0 0 0.75rem;
   letter-spacing: -0.02em;
 }
 
 .exc-closing__text {
-  font-size: 1rem;
-  color: var(--color-gray-500, #64748b);
+  font-size: 0.95rem;
+  color: #334155;
   line-height: 1.85;
+  margin: 0 auto;
+  max-width: 680px;
+  opacity: 0.85;
+}
+
+/* Feature cards */
+.exc-closing__features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.exc-closing__feature {
+  padding: 1.75rem 1.5rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 12px rgba(30, 58, 95, 0.06);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.exc-closing__feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(30, 58, 95, 0.12);
+}
+
+.exc-closing__feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  margin: 0 auto 1rem;
+  color: white;
+}
+
+.exc-closing__feature--nature .exc-closing__feature-icon {
+  background: linear-gradient(135deg, #059669, #10b981);
+}
+
+.exc-closing__feature--culture .exc-closing__feature-icon {
+  background: linear-gradient(135deg, #7c3aed, #9b5dfa);
+}
+
+.exc-closing__feature--free .exc-closing__feature-icon {
+  background: linear-gradient(135deg, #0077a8, #00a3e0);
+}
+
+.exc-closing__feature-title {
+  font-size: 1rem;
+  font-weight: 750;
+  color: #1e3a5f;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.exc-closing__feature-text {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.7;
   margin: 0;
-  max-width: 720px;
 }
 
 /* ============================================
    Responsive
    ============================================ */
 @media (max-width: 1024px) {
-  .exc-hero-quote__tagline {
+  .exc-destinations__title {
     font-size: 1.45rem;
-  }
-
-  .exc-stat-block__value {
-    font-size: 2.4rem;
   }
 }
 
 @media (max-width: 768px) {
-  .exc-hero-quote {
-    padding: 3rem 0;
+  .exc-destinations {
+    padding: 2.5rem 0 3rem;
   }
 
-  .exc-hero-quote__block {
-    padding: 0 1.75rem;
+  .exc-destinations__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
   }
 
-  .exc-hero-quote__tagline {
-    font-size: 1.3rem;
-  }
-
-  .exc-hero-quote__text {
-    font-size: 0.95rem;
-  }
-
-  .exc-hero-quote__pattern {
-    display: none;
-  }
-
-  .exc-journey {
-    padding: 3rem 0;
-  }
-
-  .exc-timeline {
-    padding-left: 42px;
-  }
-
-  .exc-timeline::before {
-    left: 16px;
-  }
-
-  .exc-timeline-item__dot {
-    left: -42px;
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
-  }
-
-  .exc-timeline-item__card {
-    padding: 1.5rem;
-  }
-
-  .exc-timeline-item__name {
-    font-size: 1rem;
-  }
-
-  .exc-journey__pattern {
-    display: none;
-  }
-
-  .exc-nature {
-    padding: 3rem 0 4rem;
-  }
-
-  .exc-stats-mosaic {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .exc-stat-block {
-    padding: 1.75rem 1rem;
-  }
-
-  .exc-stat-block__value {
-    font-size: 2rem;
-  }
-
-  .exc-nature__pattern {
-    display: none;
+  .exc-dest-card__body {
+    padding: 1.15rem 1.25rem 1.25rem;
   }
 
   .exc-day__band {
@@ -589,94 +432,36 @@
     font-size: 1.35rem;
   }
 
+  .exc-closing__features {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .exc-closing__feature {
+    padding: 1.5rem 1.25rem;
+  }
+
   .exc-closing__pattern {
     display: none;
   }
 }
 
 @media (max-width: 480px) {
-  .exc-hero-quote {
-    padding: 2.5rem 0;
+  .exc-destinations {
+    padding: 2rem 0 2.5rem;
   }
 
-  .exc-hero-quote__block {
-    border-left-width: 3px;
-    border-right-width: 3px;
-    padding: 0 1.25rem;
-  }
-
-  .exc-hero-quote__tagline {
-    font-size: 1.15rem;
-  }
-
-  .exc-hero-quote__text {
-    font-size: 0.9rem;
-    line-height: 1.75;
-  }
-
-  .exc-journey {
-    padding: 2.5rem 0;
-  }
-
-  .exc-journey__title {
+  .exc-destinations__title {
     font-size: 1.3rem;
   }
 
-  .exc-timeline {
-    padding-left: 38px;
+  .exc-dest-card__name {
+    font-size: 1.05rem;
   }
 
-  .exc-timeline::before {
-    left: 14px;
-  }
-
-  .exc-timeline-item__dot {
-    left: -38px;
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-  }
-
-  .exc-timeline-item__card {
-    padding: 1.25rem;
-  }
-
-  .exc-timeline-item__name {
-    font-size: 0.95rem;
-  }
-
-  .exc-timeline-item__text {
+  .exc-dest-card__desc {
     font-size: 0.85rem;
-  }
-
-  .exc-nature {
-    padding: 2.5rem 0 3.5rem;
-  }
-
-  .exc-nature__title {
-    font-size: 1.3rem;
-  }
-
-  .exc-stats-mosaic {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .exc-stat-block::after {
-    top: auto;
-    bottom: 0;
-    left: 20%;
-    right: 20%;
-    width: auto;
-    height: 1px;
-  }
-
-  .exc-stat-block {
-    padding: 1.5rem 1rem;
-  }
-
-  .exc-stat-block__value {
-    font-size: 2rem;
   }
 
   .exc-day__band {
@@ -707,39 +492,32 @@
     font-size: 0.9rem;
     line-height: 1.75;
   }
+
+  .exc-closing__feature-title {
+    font-size: 0.92rem;
+  }
+
+  .exc-closing__feature-text {
+    font-size: 0.82rem;
+  }
+
+  .exc-closing__feature-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
 }
 
 @media print {
-  .exc-hero-quote__pattern,
-  .exc-journey__pattern,
-  .exc-nature__pattern,
   .exc-day__band-pattern,
   .exc-closing__pattern {
     display: none;
   }
 
-  .exc-hero-quote__block {
-    border-color: var(--color-gray-300);
-  }
-
-  .exc-timeline::before {
-    background: var(--color-gray-300);
-  }
-
-  .exc-timeline-item__dot {
-    background: var(--color-gray-200) !important;
-    color: var(--color-gray-700);
-    box-shadow: none;
-  }
-
-  .exc-timeline-item__card {
+  .exc-dest-card {
     box-shadow: none;
     border: 1px solid var(--color-gray-300);
     break-inside: avoid;
-  }
-
-  .exc-stat-block__value {
-    color: var(--color-gray-900) !important;
   }
 
   .exc-day__band {

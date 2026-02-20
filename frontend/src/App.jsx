@@ -35,10 +35,11 @@ import Forums from './pages/program/Forums'
 import ParallelEvents from './pages/events/ParallelEvents'
 import CulturalEvents from './pages/events/CulturalEvents'
 
-// Excursions subpages
-import RogunExcursion from './pages/excursions/Rogun'
-import DushanbeExcursion from './pages/excursions/Dushanbe'
-import KhisorExcursion from './pages/excursions/Khisor'
+// Excursion detail
+import ExcursionDetail from './pages/ExcursionDetail'
+
+// Exhibition detail
+import ExhibitionDetail from './pages/ExhibitionDetail'
 
 // Logistics subpages
 import PracticalInfo from './pages/logistics/PracticalInfo'
@@ -178,14 +179,13 @@ const publicRoutes = (
     <Route path="events" element={<Events />} />
     <Route path="events/parallel" element={<ParallelEvents />} />
     <Route path="events/cultural" element={<CulturalEvents />} />
-    <Route path="events/rogun" element={<RogunExcursion />} />
-    <Route path="events/dushanbe" element={<DushanbeExcursion />} />
-    <Route path="events/khisor" element={<KhisorExcursion />} />
+    <Route path="events/rogun" element={<Navigate to="/excursions/rogun" replace />} />
+    <Route path="events/dushanbe" element={<Navigate to="/excursions/dushanbe" replace />} />
+    <Route path="events/khisor" element={<Navigate to="/excursions/khisor" replace />} />
     <Route path="excursions" element={<Excursions />} />
-    <Route path="excursions/rogun" element={<RogunExcursion />} />
-    <Route path="excursions/dushanbe" element={<DushanbeExcursion />} />
-    <Route path="excursions/khisor" element={<KhisorExcursion />} />
+    <Route path="excursions/:excursionId" element={<ExcursionDetail />} />
     <Route path="exhibition" element={<Exhibition />} />
+    <Route path="exhibition/:zoneId" element={<ExhibitionDetail />} />
     <Route path="logistics" element={<Logistics />} />
     <Route path="logistics/practical" element={<PracticalInfo />} />
     <Route path="logistics/visa" element={<Visa />} />
