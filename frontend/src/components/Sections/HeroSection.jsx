@@ -23,7 +23,7 @@ export default function HeroSection() {
   }
 
   const title = getLocalizedValue('titleRu', 'titleEn', 'titleTj', '')
-  const dates = getLocalizedValue('datesRu', 'datesEn', 'datesTj', 'hero.date')
+  const dates = t('hero.date')
   const location = getLocalizedValue('locationRu', 'locationEn', 'locationTj', 'hero.location')
   const quote = getLocalizedValue('quoteRu', 'quoteEn', 'quoteTj', 'heroQuote.text')
   const quoteAuthor = getLocalizedValue('quoteAuthorRu', 'quoteAuthorEn', 'quoteAuthorTj', 'heroQuote.author')
